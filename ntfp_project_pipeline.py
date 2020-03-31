@@ -1,5 +1,4 @@
 '''
-
 NASA Turbofan Failure Prediction
 
 This is the main script of the project.
