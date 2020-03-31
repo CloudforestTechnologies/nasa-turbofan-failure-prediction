@@ -10,39 +10,30 @@ This script trains and evaluates a series of ML models to predict failure on tur
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+import pandas as pd
 
 import ntfp_dataset_import
 
 ###################################
-# Import Dataset
+# Main Datapipeline Script
 ###################################
 
+if __name__ == '__main__':
+
+    # Import & visualise data
+    ntfp_dataset_import.import_dataset()
 
 
-###################################
-# Perform Initial Evaluation of Dataset
-###################################
+    # Perform Initial Evaluation of Dataset
 
 
-
-###################################
-# [Dataset] Noise Removal
-###################################
+    # [Dataset] Noise Removal
 
 
-
-###################################
-# [Dataset] Feature Engineering
-###################################
+    # [Dataset] Feature Engineering
 
 
-
-###################################
-# [Model] Hyperparameter Optimisation
-###################################
+    # [Model] Hyperparameter Optimisation
 
 
-
-###################################
-# Model Evaluation
-###################################
+    # Model Evaluation
