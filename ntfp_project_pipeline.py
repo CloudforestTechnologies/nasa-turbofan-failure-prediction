@@ -1,5 +1,5 @@
 '''
-NASA Turbofan Failure Prediction
+NASA Turbofan Failure Prediction - Project Pipeline
 
 This is the main script of the project.
 
@@ -7,28 +7,42 @@ This script trains and evaluates a series of ML models to predict failure on tur
 
 '''
 
+###################################
 # Module Importations (A - Z Format)
+###################################
 
-'''
-Import Dataset
-'''
 
-'''
-Perform Initial Evaluation of Dataset
-'''
 
-'''
-[Dataset] Noise Removal
-'''
+###################################
+# Import Dataset
+###################################
 
-'''
-[Dataset] Feature Engineering
-'''
 
-'''
-[Model] Hyperparameter Optimisation
-'''
 
-'''
-Model Evaluation
-'''
+###################################
+# Perform Initial Evaluation of Dataset
+###################################
+
+
+
+###################################
+# [Dataset] Noise Removal
+###################################
+
+
+
+###################################
+# [Dataset] Feature Engineering
+###################################
+
+
+
+###################################
+# [Model] Hyperparameter Optimisation
+###################################
+
+
+
+###################################
+# Model Evaluation
+###################################
