@@ -37,17 +37,15 @@ def import_dataset():
 # Peek at limited selection of raw data
 def peek_dataset(data_df):
 
-    engine_unit_numbers = (1.0, 5.0, 12.0)
+    # Use dataframe methods to peek at data for one engine.
+    is_number = data_df['Unit Number'] == 1.0
 
-    # Use dataframe methods to peek at data in dataframe.
-    for number in engine_unit_numbers:
-        is_number = data_df['Unit Number'] == number
+    filtered_df = data_df[is_number]
 
-        filtered_df = data_df[is_number]
+    filtered_df.plot(subplots = True, x = 'Time-Cycles')
 
-        filtered_df.plot(subplots = True, x = 'Time-Cycles')
+    plt.show()
 
-        plt.show()
 
 
     
