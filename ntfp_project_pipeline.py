@@ -23,6 +23,8 @@ if __name__ == '__main__':
     # Import & visualise data
     raw_data_df = ntfp_dataset_import.import_dataset()
 
+    ntfp_dataset_import.peek_dataset(raw_data_df)
+
 
     # Perform Initial Evaluation of Dataset
 

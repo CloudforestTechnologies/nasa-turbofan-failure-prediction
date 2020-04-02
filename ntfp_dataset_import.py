@@ -32,3 +32,9 @@ def import_dataset():
     print(raw_data_df)
 
     return raw_data_df
+
+# Peek at the raw data
+def peek_dataset(data_df):
+    pass
+
+    # Use dataframe methods to peek at data in dataframe. 
