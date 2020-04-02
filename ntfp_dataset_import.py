@@ -45,7 +45,7 @@ def peek_dataset(data_df):
 
         filtered_df = data_df[is_number]
 
-        filtered_df.plot(kind = 'scatter', x = 'Time-Cycles', y = 'Sensor 17')
+        filtered_df.plot(subplots = True, x = 'Time-Cycles')
 
         plt.show()
 
