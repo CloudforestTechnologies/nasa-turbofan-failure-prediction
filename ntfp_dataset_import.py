@@ -8,6 +8,7 @@ This file supports datset importation and visualisation.
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -33,8 +34,20 @@ def import_dataset():
 
     return raw_data_df
 
-# Peek at the raw data
+# Peek at limited selection of raw data
 def peek_dataset(data_df):
-    pass
 
-    # Use dataframe methods to peek at data in dataframe. 
+    engine_unit_numbers = (1.0, 5.0, 12.0)
+
+    # Use dataframe methods to peek at data in dataframe.
+    for number in engine_unit_numbers:
+        is_number = data_df['Unit Number'] == number
+
+        filtered_df = data_df[is_number]
+
+        filtered_df.plot(kind = 'scatter', x = 'Time-Cycles', y = 'Sensor 17')
+
+        plt.show()
+
+
+    
