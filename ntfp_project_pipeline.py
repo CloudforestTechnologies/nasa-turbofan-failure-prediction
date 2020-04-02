@@ -21,7 +21,7 @@ import ntfp_dataset_import
 if __name__ == '__main__':
 
     # Import & visualise data
-    ntfp_dataset_import.import_dataset()
+    raw_data_df = ntfp_dataset_import.import_dataset()
 
 
     # Perform Initial Evaluation of Dataset
