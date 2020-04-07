@@ -12,7 +12,7 @@ This script trains and evaluates a series of ML models to predict failure on tur
 ###################################
 import pandas as pd
 
-import ntfp_dataset_import
+import src.ntfp_dataset_import as ntfp_dataset_import
 
 ###################################
 # Main Datapipeline Script

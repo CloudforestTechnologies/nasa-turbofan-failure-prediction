@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 
 # Constants
-filename_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\Raw Data\train_FD001.txt'
+filename_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD001.txt'
 
 dataset_columns = ('Unit Number', 'Time-Cycles',
                     'Setting 1', 'Setting 2', 'Setting 3', 
