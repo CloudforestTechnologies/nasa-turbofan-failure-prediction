@@ -12,6 +12,7 @@ This script trains and evaluates a series of ML models to predict failure on tur
 ###################################
 import pandas as pd
 
+import src.ntfp_dataset_baseline as ntfp_dataset_baseline
 import src.ntfp_dataset_import as ntfp_dataset_import
 
 ###################################
@@ -25,9 +26,10 @@ if __name__ == '__main__':
 
     ntfp_dataset_import.peek_dataset(raw_data_df)
 
-
     # Perform Initial Evaluation of Dataset
+    ntfp_dataset_baseline.create_baseline_model(raw_data_df)
 
+    ntfp_dataset_baseline.evaluate_baseline_model(model = None)
 
     # [Dataset] Noise Removal
 
