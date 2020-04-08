@@ -27,18 +27,19 @@ if __name__ == '__main__':
 
     dataset_import.peek_dataset(raw_data_df)
 
-    # Perform Initial Evaluation of Dataset
+    # Reduce number of sensors / dimensionality
+
+
     dataset_preprocessing.dataset_remove_columns(None, None)
 
+    # [Sensor Principle Component Analysis]
+
+    # Develop health indicator
+
+    # Create baseline ML model for health indicator.
     dataset_baseline.create_baseline_model(raw_data_df)
 
     dataset_baseline.evaluate_baseline_model(model = None)
-
-    # [Dataset] Noise Removal
-
-
-    # [Dataset] Feature Engineering
-
 
     # [Model] Hyperparameter Optimisation
 
