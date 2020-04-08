@@ -22,14 +22,15 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
-    # Import & visualise data
+    # Import & peek data
     raw_data_df = dataset_import.import_dataset()
 
     dataset_import.peek_dataset(raw_data_df)
+    
+    # Visualise engine data, for correlations
+    dataset_import.visualise_sensor_correlation_all_engine(raw_data_df)
 
     # Reduce number of sensors / dimensionality
-
-
     dataset_preprocessing.dataset_remove_columns(None, None)
 
     # [Sensor Principle Component Analysis]
