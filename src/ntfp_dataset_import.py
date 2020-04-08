@@ -21,8 +21,17 @@ dataset_columns = ('Unit Number', 'Time-Cycles',
                     'Sensor 8', 'Sensor 9', 'Sensor 10', 'Sensor 11', 'Sensor 12', 'Sensor 13', 'Sensor 14',
                     'Sensor 15', 'Sensor 16', 'Sensor 17', 'Sensor 18', 'Sensor 19', 'Sensor 20', 'Sensor 21' ) 
 
-# Import the files
 def import_dataset():
+    """
+    Import the dataset as a dataframe, adding column names.
+    ======================================
+
+    Input:
+        None.
+
+    Output:
+        raw_data_df (dataframe) - Raw data as dataframe, with column names.
+    """
 
     # Import the raw data as an array.
     raw_data_array = np.loadtxt(filename_string, delimiter = ' ', usecols = range(26))
@@ -34,8 +43,17 @@ def import_dataset():
 
     return raw_data_df
 
-# Peek at limited selection of raw data
 def peek_dataset(data_df):
+    """
+    View a selection of raw engine data.
+    ======================================
+
+    Input:
+        data_df (dataframe) - Dataframe with data to be visualised.
+
+    Output:
+        None.
+    """
 
     # Use dataframe methods to peek at data for one engine.
     is_number = data_df['Unit Number'] == 1.0
@@ -45,7 +63,3 @@ def peek_dataset(data_df):
     filtered_df.plot(subplots = True, x = 'Time-Cycles')
 
     plt.show()
-
-
-
-    
