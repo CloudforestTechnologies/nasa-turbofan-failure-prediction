@@ -15,11 +15,11 @@ import pandas as pd
 # Constants
 filename_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD001.txt'
 
-dataset_columns = ('Unit Number', 'Time-Cycles',
-                    'Setting 1', 'Setting 2', 'Setting 3', 
-                    'Sensor 1', 'Sensor 2', 'Sensor 3', 'Sensor 4', 'Sensor 5', 'Sensor 6', 'Sensor 7',
-                    'Sensor 8', 'Sensor 9', 'Sensor 10', 'Sensor 11', 'Sensor 12', 'Sensor 13', 'Sensor 14',
-                    'Sensor 15', 'Sensor 16', 'Sensor 17', 'Sensor 18', 'Sensor 19', 'Sensor 20', 'Sensor 21' ) 
+dataset_columns = ('Engine', 'Cycles',
+                    'Set-1', 'Set-2', 'Set-3', 
+                    'Sn_01', 'Sn_02', 'Sn_03', 'Sn_04', 'Sn_05', 'Sn_06', 'Sn_07',
+                    'Sn_08', 'Sn_09', 'Sn_10', 'Sn_11', 'Sn_12', 'n_13', 'Sn_14',
+                    'Sn_15', 'Sn_16', 'Sn_17', 'Sn_18', 'Sn_19', 'Sn_20', 'Sn_21' ) 
 
 def import_dataset():
     """
