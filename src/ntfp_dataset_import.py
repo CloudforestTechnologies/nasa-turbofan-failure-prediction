@@ -39,8 +39,6 @@ def import_dataset():
     # Convert array into dataframe, to add column names and create index.
     raw_data_df = pd.DataFrame(raw_data_array, index = None, columns = dataset_columns)
 
-    print(raw_data_df)
-
     return raw_data_df
 
 def peek_dataset(data_df):
@@ -55,11 +53,7 @@ def peek_dataset(data_df):
         None.
     """
 
-    # Use dataframe methods to peek at data for one engine.
-    is_number = data_df['Unit Number'] == 1.0
+    # Visualise dataframe information.
+    print(data_df.head(5))
 
-    filtered_df = data_df[is_number]
-
-    filtered_df.plot(subplots = True, x = 'Time-Cycles')
-
-    plt.show()
+    print(data_df.info())
