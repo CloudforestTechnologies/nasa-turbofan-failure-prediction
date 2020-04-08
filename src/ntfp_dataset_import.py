@@ -65,7 +65,7 @@ def peek_dataset(data_df):
 
 def visualise_sensor_correlation_all_engine(data_df):
     """
-    Plot the correlation between sensors for all engines in the dataset.
+    Plot and save the correlation between sensors for all engines in the dataset.
     ======================================
 
     Input:
@@ -82,8 +82,12 @@ def visualise_sensor_correlation_all_engine(data_df):
     sensor_corr = modified_df.corr()
 
     # Define and show correlation plot.
-    sns.heatmap(sensor_corr, xticklabels = sensor_corr.columns.values, yticklabels = sensor_corr.columns.values, cmap="YlGnBu")
+    corr_fig = sns.heatmap(sensor_corr, xticklabels = sensor_corr.columns.values, yticklabels = sensor_corr.columns.values, cmap="YlGnBu")
     plt.title('Engine Data Correlation')
-    plt.show()
+    
+    # Save the plot.
+    fig_name = r'\engine_data_correlation.png'
+    save_string = plot_storage_string + fig_name
 
-    # Save the plot and close.
+    figure = corr_fig.get_figure()
+    figure.savefig(save_string, format = 'png', dpi = 600)
