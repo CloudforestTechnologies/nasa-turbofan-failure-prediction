@@ -23,3 +23,18 @@ def dataset_remove_columns(dataset, columns_to_be_removed):
     """
 
     pass
+
+def find_correlated_data(dataset, correlation_threshold):
+    """
+    Identifies discrete data with strong correlation to other readings.
+    ======================================
+
+    Input:
+	    dataset (dataframe) - Dataframe containing data to be analysed.
+        correlation_threshold (float) - Thershold value above which correlation is assumed.
+
+    Output:
+	    data_with_correlation (list) - List of two-column data sets with correlation.
+    """
+
+    pass
