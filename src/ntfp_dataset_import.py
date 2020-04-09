@@ -1,7 +1,7 @@
 '''
 NASA Turbofan Failure Prediction - Dataset Import
 
-This file supports dataset importation and visualisation.
+This file supports dataset importation and exploratory data analysis.
 
 '''
 
