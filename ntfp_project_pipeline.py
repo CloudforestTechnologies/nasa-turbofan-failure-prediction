@@ -22,27 +22,30 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
-    # Import & peek data
+    # Import & peek data.
     raw_data_df = dataset_import.import_dataset()
 
     dataset_import.peek_dataset(raw_data_df)
     
-    # Visualise engine data, for correlations
+    # Visualise engine data, for correlations.
     dataset_import.visualise_sensor_correlation_all_engine(raw_data_df)
 
-    # Reduce number of sensors / dimensionality
+    # Reduce / Eliminate highly-correlated sensors.
+    correlation_threshold = 0.9
+    dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
+
     dataset_preprocessing.dataset_remove_columns(None, None)
 
-    # [Sensor Principle Component Analysis]
+    # [Sensor Principle Component Analysis].
 
-    # Develop health indicator
+    # Develop health indicator.
 
     # Create baseline ML model for health indicator.
     dataset_baseline.create_baseline_model(raw_data_df)
 
     dataset_baseline.evaluate_baseline_model(model = None)
 
-    # [Model] Hyperparameter Optimisation
+    # [Model] Hyperparameter Optimisation.
 
 
-    # Model Evaluation
+    # Model Evaluation.

@@ -76,7 +76,7 @@ def visualise_sensor_correlation_all_engine(data_df):
     """
 
     # Remove the time column from the dataframe.
-    modified_df = data_df.drop('Cycles', axis = 1).corr()
+    modified_df = data_df.drop('Cycles', axis = 1)
 
     # Create correlation.
     sensor_corr = modified_df.corr()
