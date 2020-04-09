@@ -22,7 +22,10 @@ def dataset_remove_columns(dataset, columns_to_be_removed):
 	    processed_dataset (dataframe) - Final dataframe, with specified columns removed.
     """
 
-    pass
+    # Remove columns.
+    processed_dataset = dataset.drop(columns = columns_to_be_removed, axis = 1)
+
+    return processed_dataset
 
 def find_correlated_data(data_df, correlation_threshold):
     """

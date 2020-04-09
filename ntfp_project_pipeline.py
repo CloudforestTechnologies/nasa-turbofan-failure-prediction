@@ -34,7 +34,11 @@ if __name__ == '__main__':
     correlation_threshold = 0.9
     high_corrs = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
 
-    dataset_preprocessing.dataset_remove_columns(None, None)
+    columns_to_be_removed = ['Sn_05', 'Sn_10', 'Sn_14', 'Sn_16']
+
+    processed_df = dataset_preprocessing.dataset_remove_columns(raw_data_df, columns_to_be_removed)
+
+    print(processed_df.info)
 
     # [Sensor Principle Component Analysis].
 

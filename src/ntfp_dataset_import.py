@@ -17,7 +17,7 @@ import seaborn as sns
 dataset_columns = ('Engine', 'Cycles',
                     'Set-1', 'Set-2', 'Set-3', 
                     'Sn_01', 'Sn_02', 'Sn_03', 'Sn_04', 'Sn_05', 'Sn_06', 'Sn_07',
-                    'Sn_08', 'Sn_09', 'Sn_10', 'Sn_11', 'Sn_12', 'n_13', 'Sn_14',
+                    'Sn_08', 'Sn_09', 'Sn_10', 'Sn_11', 'Sn_12', 'Sn_13', 'Sn_14',
                     'Sn_15', 'Sn_16', 'Sn_17', 'Sn_18', 'Sn_19', 'Sn_20', 'Sn_21' ) 
 
 filename_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD001.txt'
