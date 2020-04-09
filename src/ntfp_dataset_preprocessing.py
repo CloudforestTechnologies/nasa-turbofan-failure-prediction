@@ -37,7 +37,7 @@ def find_correlated_data(data_df, correlation_threshold):
         correlation_threshold (float) - Thershold value above which correlation is assumed.
 
     Output:
-	    data_with_correlation (list) - List of two-column data sets, with correlation.
+	    data_with_correlation (tuple) - Tuple of two-column data sets, with correlation.
     """
 
     # Remove time column.
@@ -66,3 +66,22 @@ def find_correlated_data(data_df, correlation_threshold):
         print(correlation)
 
     return high_correlation
+
+def list_correlated_data(correlated_data):
+    """
+    Creates a list of data entities from correlated data tuple.
+    ======================================
+
+    Input:
+	    correlated_data (tuple) - Tuple of data columns with high correlation.
+
+    Output:
+	    data_entities (list) - List of data columns correlated at least once.
+    """
+
+    # Iterate over correlated data, add second value to list if not present.
+
+    # Return list.
+
+    pass
+
