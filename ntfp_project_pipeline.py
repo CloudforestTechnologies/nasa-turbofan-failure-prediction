@@ -34,9 +34,6 @@ if __name__ == '__main__':
     correlation_threshold = 0.9
     high_corrs = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
 
-    for c in high_corrs:
-        print(c)
-
     dataset_preprocessing.dataset_remove_columns(None, None)
 
     # [Sensor Principle Component Analysis].

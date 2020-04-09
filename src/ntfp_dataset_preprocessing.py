@@ -26,7 +26,7 @@ def dataset_remove_columns(dataset, columns_to_be_removed):
 
 def find_correlated_data(data_df, correlation_threshold):
     """
-    Identifies discrete data with strong correlation to other readings.
+    Identifies column values with strong correlation to other column values.
     ======================================
 
     Input:
@@ -34,7 +34,7 @@ def find_correlated_data(data_df, correlation_threshold):
         correlation_threshold (float) - Thershold value above which correlation is assumed.
 
     Output:
-	    data_with_correlation (list) - List of two-column data sets with correlation.
+	    data_with_correlation (list) - List of two-column data sets, with correlation.
     """
 
     # Remove time column.
@@ -48,16 +48,18 @@ def find_correlated_data(data_df, correlation_threshold):
 
     for column_no, column in enumerate(data_corr):
         # Create slice to ignore symmetry duplicates.
+        col_corr = data_corr[column].iloc[column_no + 1:]
 
         # Use a bool mask to identify highly-correlated data.
-        mask_pairs = data_corr.apply(lambda x: abs(x)) > correlation_threshold
+        mask_pairs = col_corr.apply(lambda x: abs(x)) > correlation_threshold
 
-        index_pairs = data_corr[mask_pairs].index
+        index_pairs = col_corr[mask_pairs].index
 
         # Create list of highly-correlated data sets.  
-        for index, correlation in zip(index_pairs, data_corr[mask_pairs].values):
+        for index, correlation in zip(index_pairs, col_corr[mask_pairs].values):
             high_correlation.append((column, index, correlation))
 
-    #print(high_correlation)
+    for correlation in high_correlation:
+        print(correlation)
 
     return high_correlation
