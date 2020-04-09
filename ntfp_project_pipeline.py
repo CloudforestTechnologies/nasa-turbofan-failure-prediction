@@ -32,7 +32,10 @@ if __name__ == '__main__':
 
     # Reduce / Eliminate highly-correlated sensors.
     correlation_threshold = 0.9
-    dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
+    high_corrs = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
+
+    for c in high_corrs:
+        print(c)
 
     dataset_preprocessing.dataset_remove_columns(None, None)
 

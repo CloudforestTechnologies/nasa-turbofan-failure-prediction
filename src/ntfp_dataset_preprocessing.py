@@ -46,7 +46,7 @@ def find_correlated_data(data_df, correlation_threshold):
     # Analyse data correlations; Keep values above threshold.
     high_correlation = []
 
-    for column_no, column in data_corr:
+    for column_no, column in enumerate(data_corr):
         # Create slice to ignore symmetry duplicates.
 
         # Use a bool mask to identify highly-correlated data.
@@ -58,6 +58,6 @@ def find_correlated_data(data_df, correlation_threshold):
         for index, correlation in zip(index_pairs, data_corr[mask_pairs].values):
             high_correlation.append((column, index, correlation))
 
-    print(high_correlation)
+    #print(high_correlation)
 
     return high_correlation
