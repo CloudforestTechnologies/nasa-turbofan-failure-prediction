@@ -43,3 +43,24 @@ def visualise_sensor_correlation_all_engine(data_df):
 
     figure = corr_fig.get_figure()
     figure.savefig(save_string, format = 'png', dpi = 600)
+
+
+def plot_time_history_all_engines(dataset_df):
+    """
+    Plot and save the complete engine time history (normalised to RUL) for all engines in dataset.
+    ======================================
+
+    Input:
+        dataset_df (dataframe) - Dataframe with engine data to be plotted.
+
+    Output:
+        None.
+    """
+
+    # Prepare dataset for plotting.
+
+    # Define and show correlation plot.
+
+    # Save the plot. 
+
+    pass

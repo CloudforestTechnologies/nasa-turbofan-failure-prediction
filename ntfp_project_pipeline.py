@@ -35,20 +35,24 @@ if __name__ == '__main__':
     correlation_threshold = 0.9
     
     correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
+    
     columns_to_be_removed = dataset_preprocessing.list_correlated_data(correlated_data)
+    
     processed_df = dataset_preprocessing.dataset_remove_columns(raw_data_df, columns_to_be_removed)
 
     print(processed_df.info)
 
     # Remove data that does not change with time.
     time_independent_columns = dataset_preprocessing.find_time_independent_columns(processed_df)
+    
     processed_df = dataset_preprocessing.dataset_remove_columns(processed_df, time_independent_columns)
 
     print(processed_df.info)
 
     # Add Remaining Useful Life (RUL) to dataset.
-    time_balanced_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
-    print(time_balanced_dataset.info)
+    rul_normalised_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
+
+    dataset_eda.plot_time_history_all_engines(rul_normalised_dataset)
 
     # [Sensor Principle Component Analysis].
 
