@@ -96,3 +96,16 @@ def list_correlated_data(correlated_data):
     # Return list.
     return data_list
 
+def find_time_independent_columns(data_df):
+    """
+    Returns a list of columns that do not change with time.
+    ======================================
+
+    Input:
+	    data_df (dataframe) - Dataframe containing time-series data.
+        
+    Output:
+	    unchanging_columns (list) - List of columns from dataframe which do not change with time.
+    """
+
+    pass

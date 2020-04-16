@@ -40,6 +40,8 @@ if __name__ == '__main__':
 
     print(processed_df.info)
 
+    # Remove data that does not change with time.
+
     # [Sensor Principle Component Analysis].
 
     # Develop health indicator.
