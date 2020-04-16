@@ -107,5 +107,20 @@ def find_time_independent_columns(data_df):
     Output:
 	    unchanging_columns (list) - List of columns from dataframe which do not change with time.
     """
+    
+    unchanging_columns = []
+    std_threshold = 0.0001
 
-    pass
+    # Iterate over columns; Identify if std is close-coupled to mean.
+    for column in data_df.columns:
+
+        if (data_df[column].std() <= std_threshold * data_df[column].mean()):
+
+            if unchanging_columns.__contains__(column):
+                pass
+
+            # Add tightly-coupled columns to list.
+            else:
+                unchanging_columns.append(column)
+  
+    return unchanging_columns
