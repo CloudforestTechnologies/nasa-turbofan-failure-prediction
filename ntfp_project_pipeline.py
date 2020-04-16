@@ -29,7 +29,7 @@ if __name__ == '__main__':
     dataset_import.peek_dataset(raw_data_df)
     
     # Visualise engine data, for correlations.
-    dataset_import.visualise_sensor_correlation_all_engine(raw_data_df)
+    dataset_eda.visualise_sensor_correlation_all_engine(raw_data_df)
 
     # Reduce / Eliminate highly-correlated sensors.
     correlation_threshold = 0.9
