@@ -141,7 +141,7 @@ def add_calculated_rul(dataset_df):
     rul_dataset_df = dataset_df
 
     # Iterate over each engine, calculating & adding engine remaining life.
-    for engine in rul_dataset_df['Engine'].unique():
+    for engine in rul_dataset_df.index.unique():
 
         print(engine)
 
