@@ -138,4 +138,14 @@ def add_calculated_rul(dataset_df):
 	    rul_dataset_df (dataframe) - Returned dataset, inclusive of calculated RUL values.
     """
 
-    pass
+    rul_dataset_df = dataset_df
+
+    # Iterate over each engine, calculating & adding engine remaining life.
+    for engine in rul_dataset_df['Engine'].unique():
+
+        print(engine)
+
+        # RUL is negative and trends to zero (end of life point)
+        rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: x - rul_dataset_df.loc[engine]['Cycles'].max())
+
+    return rul_dataset_df

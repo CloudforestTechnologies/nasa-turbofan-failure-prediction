@@ -8,14 +8,11 @@ This file supports dataset importation and exploratory data analysis.
 ###################################
 # Module Importations (A - Z Format)
 ###################################
-#import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-#import seaborn as sns
 
 # Constants
-dataset_columns = ('Engine', 'Cycles',
-                    'Set-1', 'Set-2', 'Set-3', 
+dataset_columns = ('Engine', 'Cycles','Set-1', 'Set-2', 'Set-3', 
                     'Sn_01', 'Sn_02', 'Sn_03', 'Sn_04', 'Sn_05', 'Sn_06', 'Sn_07',
                     'Sn_08', 'Sn_09', 'Sn_10', 'Sn_11', 'Sn_12', 'Sn_13', 'Sn_14',
                     'Sn_15', 'Sn_16', 'Sn_17', 'Sn_18', 'Sn_19', 'Sn_20', 'Sn_21' ) 
@@ -37,10 +34,9 @@ def import_dataset():
     """
 
     # Import the raw data as an array.
-    raw_data_array = np.loadtxt(filename_string, delimiter = ' ', usecols = range(26))
-
-    # Convert array into dataframe, to add column names and create index.
-    raw_data_df = pd.DataFrame(raw_data_array, index = None, columns = dataset_columns)
+    raw_data_df = pd.read_csv(filename_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+    
+    print(raw_data_df.head)
 
     return raw_data_df
 

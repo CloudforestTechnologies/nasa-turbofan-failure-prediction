@@ -47,6 +47,8 @@ if __name__ == '__main__':
     print(processed_df.info)
 
     # Add Remaining Useful Life (RUL) to dataset.
+    time_balanced_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
+    print(time_balanced_dataset.info)
 
     # [Sensor Principle Component Analysis].
 
