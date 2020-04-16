@@ -46,6 +46,8 @@ if __name__ == '__main__':
 
     print(processed_df.info)
 
+    # Add Remaining Useful Life (RUL) to dataset.
+
     # [Sensor Principle Component Analysis].
 
     # Develop health indicator.

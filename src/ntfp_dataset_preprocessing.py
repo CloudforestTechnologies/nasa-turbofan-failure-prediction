@@ -124,3 +124,18 @@ def find_time_independent_columns(data_df):
                 unchanging_columns.append(column)
   
     return unchanging_columns
+
+def add_calculated_rul(dataset_df):
+
+    """
+    Calculates Remaining Useful Life (RUL) and adds it to dataset, which is returned.
+    ======================================
+
+    Input:
+	    dataset_df (dataframe) - Dataframe containing time-series data.
+        
+    Output:
+	    rul_dataset_df (dataframe) - Returned dataset, inclusive of calculated RUL values.
+    """
+
+    pass
