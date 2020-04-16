@@ -42,7 +42,9 @@ if __name__ == '__main__':
 
     # Remove data that does not change with time.
     time_independent_columns = dataset_preprocessing.find_time_independent_columns(processed_df)
-    print(time_independent_columns)
+    processed_df = dataset_preprocessing.dataset_remove_columns(processed_df, time_independent_columns)
+
+    print(processed_df.info)
 
     # [Sensor Principle Component Analysis].
 
