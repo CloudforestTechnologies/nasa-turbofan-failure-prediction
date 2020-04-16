@@ -34,9 +34,7 @@ if __name__ == '__main__':
     correlation_threshold = 0.9
     
     correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
-
-    columns_to_be_removed = ['Sn_05', 'Sn_10', 'Sn_14', 'Sn_16']
-
+    columns_to_be_removed = dataset_preprocessing.list_correlated_data(correlated_data)
     processed_df = dataset_preprocessing.dataset_remove_columns(raw_data_df, columns_to_be_removed)
 
     print(processed_df.info)

@@ -79,9 +79,20 @@ def list_correlated_data(correlated_data):
 	    data_entities (list) - List of data columns correlated at least once.
     """
 
+    data_list = []
+
     # Iterate over correlated data, add second value to list if not present.
+    for correlation in correlated_data:
+
+        # Data item to be removed is 2nd item in tuple.
+        data_item = correlation[1]
+
+        if data_list.__contains__(data_item):
+            pass
+
+        else:
+            data_list.append(data_item)
 
     # Return list.
-
-    pass
+    return data_list
 
