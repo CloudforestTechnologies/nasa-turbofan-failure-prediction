@@ -75,7 +75,7 @@ def plot_time_history_all_engines(dataset_df):
         if column == 'RUL':
             continue
 
-        fontdict = {'fontsize': 12}
+        fontdict = {'fontsize': 14}
         ax.set_title(column, loc = 'left', fontdict = fontdict)
 
         # Add data for each engine to axis.

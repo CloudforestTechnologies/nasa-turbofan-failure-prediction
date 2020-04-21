@@ -50,9 +50,17 @@ if __name__ == '__main__':
     print(processed_df.info)
 
     # Add Remaining Useful Life (RUL) to dataset.
-    rul_normalised_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
+    rul_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
 
-    dataset_eda.plot_time_history_all_engines(rul_normalised_dataset)
+    dataset_eda.plot_time_history_all_engines(rul_dataset)
+
+    # Remove data columns with no apparent trend.
+    data_columns_no_trend = ['Set-1', 'Set-2']
+    rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
+
+    print(rul_dataset.info)
+
+    # Standardise remaining data columns.
 
     # [Sensor Principle Component Analysis].
 
