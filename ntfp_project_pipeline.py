@@ -61,6 +61,7 @@ if __name__ == '__main__':
     print(rul_dataset.info)
 
     # Standardise remaining data columns.
+    normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
 
     # [Sensor Principle Component Analysis].
 

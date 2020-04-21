@@ -126,7 +126,6 @@ def find_time_independent_columns(data_df):
     return unchanging_columns
 
 def add_calculated_rul(dataset_df):
-
     """
     Calculates Remaining Useful Life (RUL) and adds it to dataset, which is returned.
     ======================================
@@ -149,3 +148,17 @@ def add_calculated_rul(dataset_df):
         rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: x - rul_dataset_df.loc[engine]['Cycles'].max())
 
     return rul_dataset_df
+
+def standardise_columns(dataset_df):  
+    """
+    Normalises and returns an [array] of data from an input dataset.
+    ======================================
+
+    Input:
+	    dataset_df (dataframe) - Dataframe containing un-normalised data.
+        
+    Output:
+	    normalised_data (array) - Normalised data, returned as an array.
+    """
+    
+    pass
