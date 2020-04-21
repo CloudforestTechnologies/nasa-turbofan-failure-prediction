@@ -60,22 +60,22 @@ def plot_time_history_all_engines(dataset_df):
     # Prepare dataset for plotting.
     plotted_dataset_df = dataset_df.copy()
 
-    plotted_dataset_df.drop('Cycles', axis = 1)
+    plotted_dataset_df.drop('Cycles', axis = 1, inplace = True)
 
     columns = plotted_dataset_df.columns
 
     # Define and show correlation plot.
-    fig, axes = plt.subplots(len(columns) - 1, 1)
+    fig, axes = plt.subplots(len(columns) - 1, 1, figsize = (19, 17))
 
     for column, ax in zip(columns, axes):
 
-        print(str(column))
+        print("Plotting Engine RUL Data: " + str(column))
 
         # Filter for the RUL data only.
         if column == 'RUL':
             continue
 
-        fontdict = {'fontsize': 14}
+        fontdict = {'fontsize': 12}
         ax.set_title(column, loc = 'left', fontdict = fontdict)
 
         # Add data for each engine to axis.
@@ -83,5 +83,12 @@ def plot_time_history_all_engines(dataset_df):
             rul_time = plotted_dataset_df.loc[engine, 'RUL']
             ax.plot(rul_time, plotted_dataset_df.loc[engine, column], label = column)
 
+    # Add figure title.
+    fig.suptitle('Run to Failure - All Engines')
+
     # Save the plot.
-    plt.show()
+    fig_name = r'\time_history_all_engines.png'
+
+    save_string = plot_storage_string + fig_name
+
+    fig.savefig(save_string, format = 'png', dpi = 600)
