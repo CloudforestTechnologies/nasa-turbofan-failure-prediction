@@ -58,13 +58,14 @@ if __name__ == '__main__':
     data_columns_no_trend = ['Set-1', 'Set-2']
     rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
 
-    print(rul_dataset.info)
-
     # Standardise remaining data columns.
     normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
-    print(normalised_data)
 
-    # [Sensor Principle Component Analysis].
+    # Calculate linear regression for each sensor value.
+    slopes_df = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
+    print(slopes_df.describe())
+
+    # Data Principle Component Analysis.
 
     # Develop health indicator.
 

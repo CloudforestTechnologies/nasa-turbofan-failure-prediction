@@ -8,6 +8,8 @@ This file supports performing preprocessing operations on datasets.
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+import numpy as np
+import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
@@ -188,7 +190,22 @@ def calculate_slopes_all_engines(dataset_df, normalised_array):
     Output:
 	    data_slopes_df (dataframe) - Dataframe containing slope data for each original data column.
     """
-    pass
+    # Find slopes for all engines.
+    engines = dataset_df.index.unique().values
+
+    # Initialise empty slopes array.
+    slopes = np.empty(normalised_array.shape[1], len(engines))
+
+    # Iterate over each engine and populate slopes array.
+    for iterator, engine in enumerate(engines):
+        slopes[:,iterator] = calculate_data_lin_regr(dataset_df, normalised_array, engine)
+
+    # Convert slopes to dataframe.
+    original_columns = dataset_df.columns.values[1:-1]
+    slopes_df = pd.DataFrame(slopes.T, index = engines, columns = original_columns)
+
+    # Return dataframe.
+    return slopes_df
 
 def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     """
