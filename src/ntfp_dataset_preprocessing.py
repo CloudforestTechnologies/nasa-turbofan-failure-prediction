@@ -8,6 +8,7 @@ This file supports performing preprocessing operations on datasets.
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+from sklearn.preprocessing import StandardScaler
 
 def dataset_remove_columns(dataset, columns_to_be_removed):
     """
@@ -161,4 +162,15 @@ def standardise_columns(dataset_df):
 	    normalised_data (array) - Normalised data, returned as an array.
     """
     
-    pass
+    initial_dataset = dataset_df
+
+    # Create an array of raw data.
+    data_columns = initial_dataset.columns.values[1:-1]
+    initial_data = initial_dataset[data_columns].values
+
+    # Transform the data with a scalar method.
+    standard_scale = StandardScaler()
+    normalised_data = standard_scale.fit_transform(initial_data)
+
+    # Return the transformed data.
+    return normalised_data
