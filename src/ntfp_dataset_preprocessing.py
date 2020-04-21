@@ -8,6 +8,7 @@ This file supports performing preprocessing operations on datasets.
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
 def dataset_remove_columns(dataset, columns_to_be_removed):
@@ -189,4 +190,23 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
 	    slope () - Slope calculations for each data column.
     """
 
-    pass
+    # Initialise linear regression model.
+    model = LinearRegession()
+
+    # Prepare x.
+    x = dataset_df.loc[engine_number, 'RUL'].values
+    x_rehsaped = x.reshape(-1, 1)
+
+    # Row slice to align with numpy array index.
+    row_name = dataset_df.loc[engine_number].iloc[-1].name
+    row_slice = dataset_df.index.get_loc(row_name)
+
+    # Prepare y (data values for specific engine).
+    y = normalised_array[row_slice]
+
+    # Fit the model.
+    model.fit(x_rehsaped, y)
+
+    # Retrieve and return line slope from model.
+    slopes = model.coef_[:, 0]
+    return slopes
