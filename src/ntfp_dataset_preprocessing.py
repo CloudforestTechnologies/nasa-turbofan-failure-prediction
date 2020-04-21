@@ -174,3 +174,19 @@ def standardise_columns(dataset_df):
 
     # Return the transformed data.
     return normalised_data
+
+def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
+    """
+    Calculates and returns slopes of linear regression lines for each data column.
+    ======================================
+
+    Input:
+	    dataset_df (dataframe) - Dataframe containing un-normalised data.
+        normalised_array (array) - Array of normalised data.
+        engine_number (int) - Engine number for which data is evaluated.
+        
+    Output:
+	    slope () - Slope calculations for each data column.
+    """
+
+    pass
