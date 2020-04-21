@@ -58,9 +58,30 @@ def plot_time_history_all_engines(dataset_df):
     """
 
     # Prepare dataset for plotting.
+    plotted_dataset_df = dataset_df.copy()
+
+    plotted_dataset_df.drop('Cycles', axis = 1)
+
+    columns = plotted_dataset_df.columns
 
     # Define and show correlation plot.
+    fig, axes = plt.subplots(len(columns) - 1, 1)
 
-    # Save the plot. 
+    for column, ax in zip(columns, axes):
 
-    pass
+        print(str(column))
+
+        # Filter for the RUL data only.
+        if column == 'RUL':
+            continue
+
+        fontdict = {'fontsize': 14}
+        ax.set_title(column, loc = 'left', fontdict = fontdict)
+
+        # Add data for each engine to axis.
+        for engine in plotted_dataset_df.index.unique():
+            rul_time = plotted_dataset_df.loc[engine, 'RUL']
+            ax.plot(rul_time, plotted_dataset_df.loc[engine, column], label = column)
+
+    # Save the plot.
+    plt.show()
