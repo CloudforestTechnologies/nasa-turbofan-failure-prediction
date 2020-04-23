@@ -222,7 +222,7 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     """
 
     # Initialise linear regression model.
-    model = LinearRegession()
+    model = LinearRegression()
 
     # Prepare x.
     x = dataset_df.loc[engine_number, 'RUL'].values
