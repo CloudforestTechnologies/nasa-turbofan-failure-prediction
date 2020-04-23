@@ -194,7 +194,7 @@ def calculate_slopes_all_engines(dataset_df, normalised_array):
     engines = dataset_df.index.unique().values
 
     # Initialise empty slopes array.
-    slopes = np.empty(normalised_array.shape[1], len(engines))
+    slopes = np.empty((normalised_array.shape[1], len(engines)))
 
     # Iterate over each engine and populate slopes array.
     for iterator, engine in enumerate(engines):
