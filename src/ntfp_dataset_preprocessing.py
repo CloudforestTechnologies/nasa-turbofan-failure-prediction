@@ -218,7 +218,7 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
         engine_number (int) - Engine number for which data is evaluated.
         
     Output:
-	    slope () - Slope calculations for each data column.
+	    slope (dataframe) - Slope calculations for each data column.
     """
 
     # Initialise linear regression model.
@@ -241,3 +241,26 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     # Retrieve and return line slope from model.
     slopes = model.coef_[:, 0]
     return slopes
+
+def return_data_ordered_abs_value(slopes_df):
+    """
+    Orders, prints and returns a list of data values sorted by absolute value.
+    ======================================
+
+    Input:
+	    slopes_df (dataframe) - Dataframe data column slopes.
+        dataset_df (dataframe) - Dataframe containing parent dataset.
+        
+    Output:
+	    slope_order (array) - An array of data columns, ordered by abs value (highest first).
+    """
+
+    # Order slope data as an array.
+
+    # Determine columns names as an array.
+
+    # Print columns in order of absolute value.
+
+    # Return slope order data array.
+
+    pass

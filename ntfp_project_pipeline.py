@@ -71,6 +71,8 @@ if __name__ == '__main__':
     slopes_df = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
     print(slopes_df.describe())
 
+    # Order slopes by value.
+
     # Data Principle Component Analysis.
 
     # Develop health indicator.
