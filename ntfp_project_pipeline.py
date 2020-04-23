@@ -23,6 +23,7 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
+    '''
     # Import & peek data.
     raw_data_df = dataset_import.import_dataset()
 
@@ -57,11 +58,16 @@ if __name__ == '__main__':
     # Remove data columns with no apparent trend.
     data_columns_no_trend = ['Set-1', 'Set-2']
     rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
+    
+    rul_dataset.to_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+    
+    '''
+    rul_dataset = pd.read_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
     # Standardise remaining data columns.
     normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
 
-    # Calculate linear regression for each sensor value.
+    # Calculate linear regression for each data value.
     slopes_df = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
     print(slopes_df.describe())
 
@@ -70,7 +76,7 @@ if __name__ == '__main__':
     # Develop health indicator.
 
     # Create baseline ML model for health indicator.
-    dataset_baseline.create_baseline_model(raw_data_df)
+    #dataset_baseline.create_baseline_model(raw_data_df)
 
     dataset_baseline.evaluate_baseline_model(model = None)
 
