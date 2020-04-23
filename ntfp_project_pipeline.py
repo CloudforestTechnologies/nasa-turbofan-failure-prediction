@@ -74,7 +74,11 @@ if __name__ == '__main__':
     # Order slopes by value.
     slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
 
-    # Data Principle Component Analysis.
+    # [Data Principle Component Analysis].
+
+    # Drop all but most influential data columns.
+    data_columns_not_influential = ['Cycles', 'Sn_21', 'Sn_20', 'Sn_17', 'Sn_02', 'Sn_03', 'Sn_09']
+    rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_not_influential)
 
     # Develop health indicator.
 
