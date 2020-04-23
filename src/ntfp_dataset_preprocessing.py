@@ -243,13 +243,12 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     slopes = model.coef_[:, 0]
     return slopes
 
-def return_data_ordered_abs_value(slopes_df, slopes_array, dataset_df):
+def return_data_ordered_abs_value(slopes_array, dataset_df):
     """
     Orders, prints and returns a list of data values sorted by absolute value.
     ======================================
 
     Input:
-	    slopes_df (dataframe) - Dataframe data column slopes.
         slopes_array (array) - Array containing normalised column data.
         dataset_df (dataframe) - Dataframe containing parent dataset.
         
@@ -259,8 +258,6 @@ def return_data_ordered_abs_value(slopes_df, slopes_array, dataset_df):
 
     # Order slope data as an array.
     slope_order_array = np.argsort(np.abs(slopes_array.mean(axis = 1)))[::-1]
-
-    print(slope_order_array)
 
     # Determine columns names as an array.
     data_columns = dataset_df.columns.values[1:-1]
