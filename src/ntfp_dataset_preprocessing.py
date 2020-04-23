@@ -189,23 +189,24 @@ def calculate_slopes_all_engines(dataset_df, normalised_array):
         
     Output:
 	    data_slopes_df (dataframe) - Dataframe containing slope data for each original data column.
+        slopes_array (array) - Array containing slope data arrayed by engine number.
     """
-    # Find slopes for all engines.
+    # Make list of unique engines.
     engines = dataset_df.index.unique().values
 
     # Initialise empty slopes array.
-    slopes = np.empty((normalised_array.shape[1], len(engines)))
+    slopes_array = np.empty((normalised_array.shape[1], len(engines)))
 
     # Iterate over each engine and populate slopes array.
     for iterator, engine in enumerate(engines):
-        slopes[:,iterator] = calculate_data_lin_regr(dataset_df, normalised_array, engine)
+        slopes_array[:,iterator] = calculate_data_lin_regr(dataset_df, normalised_array, engine)
 
     # Convert slopes to dataframe.
     original_columns = dataset_df.columns.values[1:-1]
-    slopes_df = pd.DataFrame(slopes.T, index = engines, columns = original_columns)
+    slopes_df = pd.DataFrame(slopes_array.T, index = engines, columns = original_columns)
 
     # Return dataframe.
-    return slopes_df
+    return slopes_df, slopes_array
 
 def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     """
@@ -242,13 +243,14 @@ def calculate_data_lin_regr(dataset_df, normalised_array, engine_number):
     slopes = model.coef_[:, 0]
     return slopes
 
-def return_data_ordered_abs_value(slopes_df):
+def return_data_ordered_abs_value(slopes_df, slopes_array, dataset_df):
     """
     Orders, prints and returns a list of data values sorted by absolute value.
     ======================================
 
     Input:
 	    slopes_df (dataframe) - Dataframe data column slopes.
+        slopes_array (array) - Array containing normalised column data.
         dataset_df (dataframe) - Dataframe containing parent dataset.
         
     Output:
@@ -256,11 +258,15 @@ def return_data_ordered_abs_value(slopes_df):
     """
 
     # Order slope data as an array.
+    slope_order_array = np.argsort(np.abs(slopes_array.mean(axis = 1)))[::-1]
+
+    print(slope_order_array)
 
     # Determine columns names as an array.
+    data_columns = dataset_df.columns.values[1:-1]
 
     # Print columns in order of absolute value.
+    print('Slope Order: \n{}'.format(data_columns[slope_order_array]))
 
     # Return slope order data array.
-
-    pass
+    return slope_order_array

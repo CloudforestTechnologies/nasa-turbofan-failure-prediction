@@ -68,10 +68,11 @@ if __name__ == '__main__':
     normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
 
     # Calculate linear regression for each data value.
-    slopes_df = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
+    slopes_df, slopes_array = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
     print(slopes_df.describe())
 
     # Order slopes by value.
+    slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_df, slopes_array, rul_dataset)
 
     # Data Principle Component Analysis.
 
