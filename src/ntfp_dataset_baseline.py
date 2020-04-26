@@ -10,8 +10,8 @@ This file supports creating a baseline predictive model.
 ###################################
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import classification_report
+from sklearn.metrics import mean_absolute_error
 import numpy as np
 
 def create_baseline_model(dataset_df, target_value):
@@ -28,26 +28,29 @@ def create_baseline_model(dataset_df, target_value):
 	    regr_model (LinearRegression) - Linear Regression model fitted to training data.
     """
 
+    X_array = dataset_df.drop(target_value, axis = 1).values
+    y_array = dataset_df[target_value].values
+
+    print(X_array)
+    print(y_array)
+
     # Create split between training and test sets.
     print("Splitting data into training and test sets.")
-    train, test = train_test_split(dataset_df, test_size = 0.2, random_state = 0)
+    X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
 
     # Initialise the linear regression.
     regr_model = LinearRegression()
-
-    # Create training set.
-    X_train = train
-    y_train = train[target_value]
 
     # Train the algorithm on the data.
     print("Training the model.")
     regr_model.fit(X_train, y_train)
 
     # Evaluate the model.
-    y_test = test[target_value]
-    y_pred = regr_model.predict(test)
+    y_pred = regr_model.predict(X_test)
 
     mae = mean_absolute_error(y_test, y_pred)
     print("Baseline MAE: " + str(mae))
+
+    #print(classification_report(y_test, y_pred))
 
     return regr_model
