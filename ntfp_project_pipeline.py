@@ -83,7 +83,7 @@ if __name__ == '__main__':
     # Develop health indicator.
 
     # Create baseline ML model for health indicator.
-    #dataset_baseline.create_baseline_model(raw_data_df)
+    baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
     dataset_baseline.evaluate_baseline_model(model = None)
 
