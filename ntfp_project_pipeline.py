@@ -80,12 +80,14 @@ if __name__ == '__main__':
     data_columns_not_influential = ['Cycles', 'Sn_21', 'Sn_20', 'Sn_17', 'Sn_02', 'Sn_03', 'Sn_09']
     rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_not_influential)
 
+    print(rul_dataset)
+
     # Develop health indicator.
 
     # Create baseline ML model for health indicator.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
-    dataset_baseline.evaluate_baseline_model(model = None)
+    #dataset_baseline.evaluate_baseline_model(model = None)
 
     # [Model] Hyperparameter Optimisation.
 

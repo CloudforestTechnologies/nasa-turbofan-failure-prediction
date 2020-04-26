@@ -43,19 +43,11 @@ def create_baseline_model(dataset_df, target_value):
     print("Training the model.")
     regr_model.fit(X_train, y_train)
 
+    # Evaluate the model.
+    y_test = test[target_value]
+    y_pred = regr_model.predict(test)
+
+    mae = mean_absolute_error(y_test, y_pred)
+    print("Baseline MAE: " + str(mae))
+
     return regr_model
-
-def evaluate_baseline_model(model):
-    """
-    Orders, prints and returns a list of data values sorted by absolute value.
-    ======================================
-
-    Input:
-        slopes_array (array) - Array containing normalised column data.
-        dataset_df (dataframe) - Dataframe containing parent dataset.
-        
-    Output:
-	    slope_order (array) - An array of data columns, ordered by abs value (highest first).
-    """
-
-    pass
