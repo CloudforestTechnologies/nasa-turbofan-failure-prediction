@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import classification_report
 from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
 import numpy as np
 
 def create_baseline_model(dataset_df, target_value):
@@ -50,6 +51,9 @@ def create_baseline_model(dataset_df, target_value):
 
     mae = mean_absolute_error(y_test, y_pred)
     print("Baseline MAE: " + str(mae))
+
+    rmse = mean_squared_error(y_test, y_pred, squared = False)
+    print("Baseline MSE: " + str(rmse))
 
     #print(classification_report(y_test, y_pred))
 
