@@ -55,6 +55,15 @@ def create_baseline_model(dataset_df, target_value):
     rmse = mean_squared_error(y_test, y_pred, squared = False)
     print("Baseline MSE: " + str(rmse))
 
+    diff = y_pred - y_test
+    percent_diff = (diff / y_test) * 100
+    abs_percent_diff = np.abs(percent_diff)
+
+    mean = np.mean(abs_percent_diff)
+    std = np.mean(abs_percent_diff)
+
+    print("[INFO] mean: {:.2f}%, std: {:.2f}%".format(mean, std))
+
     #print(classification_report(y_test, y_pred))
 
     return regr_model
