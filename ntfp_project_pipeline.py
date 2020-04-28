@@ -12,6 +12,7 @@ This script trains and evaluates a series of ML models to predict failure on tur
 ###################################
 import pandas as pd
 
+import model.ntfp_model_randomforest as random_forest
 import src.ntfp_dataset_baseline as dataset_baseline
 import src.ntfp_dataset_exploratory as dataset_eda
 import src.ntfp_dataset_import as dataset_import
