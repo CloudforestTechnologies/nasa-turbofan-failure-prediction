@@ -91,10 +91,10 @@ if __name__ == '__main__':
     print(rul_dataset)
 
     # Create baseline ML model tracking against RUL.
-    baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
+    #baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
     # Train / evaluate random forest regressor.
-    random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL')
+    #random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL')
 
     # Train / evaluate NN.
     mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL')

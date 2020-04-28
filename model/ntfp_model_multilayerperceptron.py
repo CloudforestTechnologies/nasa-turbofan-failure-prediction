@@ -22,6 +22,7 @@ from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import MinMaxScaler
 import keras
 import numpy as np
 
@@ -37,8 +38,21 @@ def prepare_training_data(dataset_df, target_value):
     Output:
         X_train, X_test, y_train, y_test = Arrays containing split data for model training.
     """
-    X_array = dataset_df.drop(target_value, axis = 1).values
-    y_array = dataset_df[target_value].values
+
+    # Additional scaling of data for neural network.
+
+    X_dataset = dataset_df.drop(target_value, axis = 1)
+
+    scalar = MinMaxScaler()
+    X_array = scalar.fit_transform(X_dataset)
+    print(X_array)
+
+    y_max = dataset_df[target_value].max()
+    print(y_max)
+    y_mean = dataset_df[target_value].mean()
+    print(y_mean)
+    y_array = (dataset_df[target_value].values) / y_max
+    print(y_array)
 
     # Create split between training and test sets.
     print(print("[mlp Neural Network] Preparing Training Data ..."))
@@ -89,7 +103,8 @@ def train_multi_layer_NN_model(dataset_df, target_value):
     mlp_model = create_multilayer_perceptron(X_train.shape[1])
 
     # Compile the model using mean absolute percentage error as loss.
-    opt = Adam(lr = 1e-3, decay = 1e-3 /200)
+    #opt = Adam(lr = 1e-3, decay = 1e-3 /200)
+    opt = Adam()
     mlp_model.compile(loss = "mean_absolute_percentage_error", optimizer = opt)
 
     # Train the model.
