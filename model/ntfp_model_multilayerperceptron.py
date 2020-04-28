@@ -34,9 +34,16 @@ def prepare_training_data(dataset_df, target_value):
         target_value (str) - Target value for model training.
 
     Output:
-        X_train, X_test, y_train, y_test = Arrays containing data for model training.
+        X_train, X_test, y_train, y_test = Arrays containing split data for model training.
     """
-    pass
+    X_array = dataset_df.drop(target_value, axis = 1).values
+    y_array = dataset_df[target_value].values
+
+    # Create split between training and test sets.
+    print(print("[mlp Neural Network] Preparing Training Data ..."))
+    X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
+
+    return X_train, X_test, y_train, y_test
 
 def create_multilayer_perceptron(dim):
     """
@@ -72,18 +79,26 @@ def train_multi_layer_NN_model(dataset_df, target_value):
     """
 
     # Prepare training and test datasets.
+    X_train, X_test, y_train, y_test = prepare_training_data(dataset_df, target_value)
 
     # Create the model.
-    model = create_multilayer_perceptron(trainX.shape[1], regress = True)
+    mlp_model = create_multilayer_perceptron(X_train.shape[1])
 
     # Compile the model using mean absolute percentage error as loss.
     opt = Adam(lr = 1e-3, decay = 1e-3 /200)
-    model.compile(loss = "mean_absolute_percentage_error", optimizer = opt)
+    mlp_model.compile(loss = "mean_absolute_percentage_error", optimizer = opt)
 
     # Train the model.
     print("[mlp Neural Network] Training model ...")
-    model.fit(trainX, trainY, validation_data = (testX, testY), epochs = 200, batch_size = 8)
+    mlp_model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs = 20, batch_size = 8)
 
     # Make predictions on the test data.
-    print("[INFO] Predicting house prices ...")
-    predictions = model.predict(testX)
+    y_pred = mlp_model.predict(X_test)
+
+    mae = mean_absolute_error(y_test, y_pred)
+    print("mlp Neural Network MAE: " + str(mae))
+
+    rmse = mean_squared_error(y_test, y_pred, squared = False)
+    print("mlp Neural Network MSE: " + str(rmse))
+
+    return mlp_model

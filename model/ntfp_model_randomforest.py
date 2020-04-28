@@ -31,7 +31,7 @@ def train_random_forest_model(dataset_df, target_value):
     y_array = dataset_df[target_value].values
 
     # Create split between training and test sets.
-    print("[Baseline] Splitting data into training and test sets.")
+    print("[Random Forest Regression] Splitting data into training and test sets.")
     X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
 
     # Initialise the linear regression.

@@ -12,6 +12,7 @@ This script trains and evaluates a series of ML models to predict failure on tur
 ###################################
 import pandas as pd
 
+import model.ntfp_model_multilayerperceptron as mlp_nn
 import model.ntfp_model_randomforest as random_forest
 import src.ntfp_dataset_baseline as dataset_baseline
 import src.ntfp_dataset_exploratory as dataset_eda
@@ -96,6 +97,6 @@ if __name__ == '__main__':
     random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL')
 
     # Train / evaluate NN.
-
+    mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL')
 
     # Model Evaluation.
