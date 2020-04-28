@@ -55,7 +55,11 @@ def create_baseline_model(dataset_df, target_value):
     rmse = mean_squared_error(y_test, y_pred, squared = False)
     print("Baseline MSE: " + str(rmse))
 
-    diff = y_pred - y_test
+    diff = y_pred.flatten() - y_test.flatten()
+    print(y_test)
+    print(np.amin(y_test))
+    print(diff)
+    print(np.amax(diff))
     percent_diff = (diff / y_test) * 100
     abs_percent_diff = np.abs(percent_diff)
 

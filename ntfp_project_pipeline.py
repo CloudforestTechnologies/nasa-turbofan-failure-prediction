@@ -23,7 +23,7 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
-    '''
+    
     # Import & peek data.
     raw_data_df = dataset_import.import_dataset()
 
@@ -53,16 +53,22 @@ if __name__ == '__main__':
     # Add Remaining Useful Life (RUL) to dataset.
     rul_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
 
-    dataset_eda.plot_time_history_all_engines(rul_dataset)
+    print(rul_dataset.head())
+
+    #dataset_eda.plot_time_history_all_engines(rul_dataset)
 
     # Remove data columns with no apparent trend.
     data_columns_no_trend = ['Set-1', 'Set-2']
     rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
     
+    print(rul_dataset.head())
+
     rul_dataset.to_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
     
-    '''
+    
     rul_dataset = pd.read_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+
+    print(rul_dataset.head())
 
     # Standardise remaining data columns.
     normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
