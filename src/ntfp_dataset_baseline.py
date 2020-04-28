@@ -10,10 +10,8 @@ This file supports creating a baseline predictive model.
 ###################################
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import classification_report
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
-from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 
 def create_baseline_model(dataset_df, target_value):
