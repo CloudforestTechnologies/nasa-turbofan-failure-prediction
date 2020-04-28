@@ -21,7 +21,6 @@ def create_baseline_model(dataset_df, target_value):
 
     Input:
         dataset_df (dataframe) - Dataframe containing training dataset.
-        training_data (list) - List of training data column headers.
         target_value (str) - Target value for model training.
         
     Output:
@@ -32,14 +31,14 @@ def create_baseline_model(dataset_df, target_value):
     y_array = dataset_df[target_value].values
 
     # Create split between training and test sets.
-    print("Splitting data into training and test sets.")
+    print("[Baseline] Splitting data into training and test sets.")
     X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
 
     # Initialise the linear regression.
     regr_model = LinearRegression()
 
     # Train the algorithm on the data.
-    print("Training the model.")
+    print("[Baseline] Training the model.")
     regr_model.fit(X_train, y_train)
 
     # Evaluate the model.

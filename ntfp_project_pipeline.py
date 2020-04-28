@@ -94,7 +94,10 @@ if __name__ == '__main__':
     # Create baseline ML model for health indicator.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
-    # [Model] Hyperparameter Optimisation.
+    # Train / evaluate random forest regressor.
+    random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL')
+
+    # Train / evaluate NN.
 
 
     # Model Evaluation.
