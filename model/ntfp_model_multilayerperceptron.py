@@ -22,6 +22,7 @@ from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+import keras
 import numpy as np
 
 def prepare_training_data(dataset_df, target_value):
@@ -78,6 +79,9 @@ def train_multi_layer_NN_model(dataset_df, target_value):
         mlp_model (Sequential) - Multi-layer perceptron model, fitted to training data.
     """
 
+    # Clear existing models.
+    keras.backend.clear_session()
+
     # Prepare training and test datasets.
     X_train, X_test, y_train, y_test = prepare_training_data(dataset_df, target_value)
 
@@ -90,7 +94,7 @@ def train_multi_layer_NN_model(dataset_df, target_value):
 
     # Train the model.
     print("[mlp Neural Network] Training model ...")
-    mlp_model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs = 20, batch_size = 8)
+    mlp_model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs = 50, batch_size = 8)
 
     # Make predictions on the test data.
     y_pred = mlp_model.predict(X_test)
