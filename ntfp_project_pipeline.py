@@ -23,7 +23,7 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
-    
+    '''
     # Import & peek data.
     raw_data_df = dataset_import.import_dataset()
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     print(rul_dataset.head())
 
     rul_dataset.to_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
-    
+    '''
     
     rul_dataset = pd.read_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
@@ -92,8 +92,6 @@ if __name__ == '__main__':
 
     # Create baseline ML model for health indicator.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
-
-    #dataset_baseline.evaluate_baseline_model(model = None)
 
     # [Model] Hyperparameter Optimisation.
 

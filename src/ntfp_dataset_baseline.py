@@ -13,6 +13,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import classification_report
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 
 def create_baseline_model(dataset_df, target_value):
@@ -31,9 +32,6 @@ def create_baseline_model(dataset_df, target_value):
 
     X_array = dataset_df.drop(target_value, axis = 1).values
     y_array = dataset_df[target_value].values
-
-    print(X_array)
-    print(y_array)
 
     # Create split between training and test sets.
     print("Splitting data into training and test sets.")
@@ -54,20 +52,5 @@ def create_baseline_model(dataset_df, target_value):
 
     rmse = mean_squared_error(y_test, y_pred, squared = False)
     print("Baseline MSE: " + str(rmse))
-
-    diff = y_pred.flatten() - y_test.flatten()
-    print(y_test)
-    print(np.amin(y_test))
-    print(diff)
-    print(np.amax(diff))
-    percent_diff = (diff / y_test) * 100
-    abs_percent_diff = np.abs(percent_diff)
-
-    mean = np.mean(abs_percent_diff)
-    std = np.mean(abs_percent_diff)
-
-    print("[INFO] mean: {:.2f}%, std: {:.2f}%".format(mean, std))
-
-    #print(classification_report(y_test, y_pred))
 
     return regr_model
