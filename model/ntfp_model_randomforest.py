@@ -12,6 +12,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+import src.ntfp_dataset_preprocessing as dataset_preprocessing
 import numpy as np
 
 def train_random_forest_model(dataset_df, target_value):
@@ -32,7 +33,8 @@ def train_random_forest_model(dataset_df, target_value):
 
     # Create split between training and test sets.
     print("[Random Forest Regression] Splitting data into training and test sets.")
-    X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
+    #X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
+    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Initialise the linear regression.
     rf_model = RandomForestRegressor()

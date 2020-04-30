@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
+import src.ntfp_dataset_preprocessing as dataset_preprocessing
 import numpy as np
 
 def create_baseline_model(dataset_df, target_value):
@@ -27,12 +28,13 @@ def create_baseline_model(dataset_df, target_value):
 	    regr_model (LinearRegression) - Linear Regression model fitted to training data.
     """
 
-    X_array = dataset_df.drop(target_value, axis = 1).values
-    y_array = dataset_df[target_value].values
+    #X_array = dataset_df.drop(target_value, axis = 1).values
+    #y_array = dataset_df[target_value].values
 
     # Create split between training and test sets.
     print("[Baseline] Splitting data into training and test sets.")
-    X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
+    #X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
+    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Initialise the linear regression.
     regr_model = LinearRegression()

@@ -23,6 +23,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
+import src.ntfp_dataset_preprocessing as dataset_preprocessing
 import keras
 import numpy as np
 
@@ -92,7 +93,8 @@ def train_multi_layer_NN_model(dataset_df, target_value):
     keras.backend.clear_session()
 
     # Prepare training and test datasets.
-    X_train, X_test, y_train, y_test = prepare_training_data(dataset_df, target_value)
+    #X_train, X_test, y_train, y_test = prepare_training_data(dataset_df, target_value)
+    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Create the model.
     mlp_model = create_multilayer_perceptron(X_train.shape[1])

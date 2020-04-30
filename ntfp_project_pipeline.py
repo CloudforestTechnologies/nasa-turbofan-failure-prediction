@@ -88,8 +88,6 @@ if __name__ == '__main__':
 
     print(rul_dataset)
 
-    # Apply normalisation to dataset.
-
     # Create baseline ML model tracking against RUL.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
