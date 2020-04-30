@@ -89,19 +89,18 @@ if __name__ == '__main__':
     print(rul_dataset)
 
     # Create baseline ML model tracking against RUL.
-    baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
+    baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate random forest regressor.
-    random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL')
+    random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate NN.
-    mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL')
+    mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
 
-    # Apply Principle Component Analysis to dataset.
+    # Retrain and evaluate models with PCA enabled.
+    baseline_model_PCA = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = True)
 
-    # Undertake PCA on original dataset.
+    random_forest_model_PCA = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = True)
 
-    # Create new dataset with RUL and PCA components.
-
-    # Retrain and evaluate models.
+    mlp_NN_model_PCA = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = True)
 
