@@ -178,26 +178,18 @@ def prepare_training_data(dataset_df, target_value, apply_pca = False):
     scalar = StandardScaler()
     # scalar = MinMaxScalar()
     X_array = scalar.fit_transform(X_dataset)
-    print("Before PCA - X:")
-    print(X_array)
 
     # Apply PCA, if applicable.
     if (apply_pca == True):
 
         pca = PCA(n_components = 3)
         X_array = pca.fit_transform(X_array)
-        print(pca.explained_variance_ratio_ * 100)
-        print("After PCA Applied - X:")
-        print(X_array)
 
     y_array = dataset_df[target_value].values
 
     # Create split between training and test sets.
     print("Preparing Training Data ...")
     X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
-
-    print("After TTS - X:")
-    print(X_train)
 
     return X_train, X_test, y_train, y_test
 
