@@ -45,14 +45,10 @@ def prepare_training_data(dataset_df, target_value):
 
     scalar = MinMaxScaler()
     X_array = scalar.fit_transform(X_dataset)
-    print(X_array)
 
     y_max = dataset_df[target_value].max()
-    print(y_max)
     y_mean = dataset_df[target_value].mean()
-    print(y_mean)
     y_array = (dataset_df[target_value].values) / y_max
-    print(y_array)
 
     # Create split between training and test sets.
     print(print("[mlp Neural Network] Preparing Training Data ..."))
@@ -74,7 +70,8 @@ def create_multilayer_perceptron(dim):
 
     # Define the network.
     model = Sequential()
-    model.add(Dense(8, input_dim = dim, activation = "relu"))
+    model.add(Dense(12, input_dim = dim, activation = "relu"))
+    model.add(Dense(8, activation = "relu"))
     model.add(Dense(4, activation = "relu"))
     model.add(Dense(1, activation = "linear"))
 
@@ -103,8 +100,7 @@ def train_multi_layer_NN_model(dataset_df, target_value):
     mlp_model = create_multilayer_perceptron(X_train.shape[1])
 
     # Compile the model using mean absolute percentage error as loss.
-    #opt = Adam(lr = 1e-3, decay = 1e-3 /200)
-    opt = Adam()
+    opt = Adam(lr = 1e-3, decay = 1e-3 /200)
     mlp_model.compile(loss = "mean_absolute_percentage_error", optimizer = opt)
 
     # Train the model.
