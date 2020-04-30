@@ -76,7 +76,7 @@ def create_multilayer_perceptron(dim):
 
     return model
 
-def train_multi_layer_NN_model(dataset_df, target_value):
+def train_multi_layer_NN_model(dataset_df, target_value, apply_pca):
     """
     Creates, trains and returns a neural network model from training data.
     ======================================
@@ -84,6 +84,7 @@ def train_multi_layer_NN_model(dataset_df, target_value):
     Input:
         dataset_df (dataframe) - Dataframe containing training dataset.
         target_value (str) - Target value for model training.
+        apply_pca (bool) - Determines whether to apply Principle Component Analysis to data.
 
     Output:
         mlp_model (Sequential) - Multi-layer perceptron model, fitted to training data.
@@ -94,7 +95,11 @@ def train_multi_layer_NN_model(dataset_df, target_value):
 
     # Prepare training and test datasets.
     #X_train, X_test, y_train, y_test = prepare_training_data(dataset_df, target_value)
-    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
+    #X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
+    if (apply_pca == True):
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value, True)
+    else:
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Create the model.
     mlp_model = create_multilayer_perceptron(X_train.shape[1])

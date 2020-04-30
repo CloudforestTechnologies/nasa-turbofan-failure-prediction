@@ -15,7 +15,7 @@ from sklearn.metrics import mean_squared_error
 import src.ntfp_dataset_preprocessing as dataset_preprocessing
 import numpy as np
 
-def create_baseline_model(dataset_df, target_value):
+def create_baseline_model(dataset_df, target_value, apply_pca):
     """
     Creates, trains and returns a linear regression model from training data.
     ======================================
@@ -23,6 +23,7 @@ def create_baseline_model(dataset_df, target_value):
     Input:
         dataset_df (dataframe) - Dataframe containing training dataset.
         target_value (str) - Target value for model training.
+        apply_pca (bool) - Determines whether to apply Principle Component Analysis to data.
         
     Output:
 	    regr_model (LinearRegression) - Linear Regression model fitted to training data.
@@ -34,7 +35,10 @@ def create_baseline_model(dataset_df, target_value):
     # Create split between training and test sets.
     print("[Baseline] Splitting data into training and test sets.")
     #X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
-    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
+    if (apply_pca == True):
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value, True)
+    else:
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Initialise the linear regression.
     regr_model = LinearRegression()

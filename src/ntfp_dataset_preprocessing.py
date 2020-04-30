@@ -10,6 +10,7 @@ This file supports performing preprocessing operations on datasets.
 ###################################
 import numpy as np
 import pandas as pd
+from sklearn.decomposition import PCA
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -156,7 +157,7 @@ def add_calculated_rul(dataset_df):
 
     return rul_dataset_df
 
-def prepare_training_data(dataset_df, target_value):
+def prepare_training_data(dataset_df, target_value, apply_pca = False):
     """
     Prepare and return training and test data arrays from input dataframe, normalising using 
     ======================================
@@ -164,6 +165,7 @@ def prepare_training_data(dataset_df, target_value):
     Input:
         dataset_df (dataframe) - Dataframe containing training dataset.
         target_value (str) - Target value for model training.
+        apply_pca (bool) - Determines whether to apply Principle Component Analysis to data.
 
     Output:
         X_train, X_test, y_train, y_test = Arrays containing split data for model training.
@@ -177,8 +179,14 @@ def prepare_training_data(dataset_df, target_value):
     # scalar = MinMaxScalar()
     X_array = scalar.fit_transform(X_dataset)
 
+    # Apply PCA, if applicable.
+    if (apply_pca == True):
+
+        pca = PCA(n_components = 3)
+        pca.fit_transform(X_array)
+        print(pca.explained_variance_ratio_ * 100)
+
     y_array = dataset_df[target_value].values
-    #y_array = (dataset_df[target_value].values) / y_max
 
     # Create split between training and test sets.
     print(print("[mlp Neural Network] Preparing Training Data ..."))

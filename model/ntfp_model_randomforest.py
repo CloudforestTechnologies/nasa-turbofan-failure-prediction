@@ -15,7 +15,7 @@ from sklearn.metrics import mean_squared_error
 import src.ntfp_dataset_preprocessing as dataset_preprocessing
 import numpy as np
 
-def train_random_forest_model(dataset_df, target_value):
+def train_random_forest_model(dataset_df, target_value, apply_pca):
     """
     Creates, trains and returns a random forest model from training data.
     ======================================
@@ -23,18 +23,24 @@ def train_random_forest_model(dataset_df, target_value):
     Input:
         dataset_df (dataframe) - Dataframe containing training dataset.
         target_value (str) - Target value for model training.
+        apply_pca (bool) - Determines whether to apply Principle Component Analysis to data.
         
     Output:
 	    rf_model (RandomForestRegression) - Random Forest Regression model fitted to training data.
     """
 
-    X_array = dataset_df.drop(target_value, axis = 1).values
-    y_array = dataset_df[target_value].values
+    #X_array = dataset_df.drop(target_value, axis = 1).values
+    #y_array = dataset_df[target_value].values
 
     # Create split between training and test sets.
     print("[Random Forest Regression] Splitting data into training and test sets.")
     #X_train, X_test, y_train, y_test = train_test_split(X_array, y_array, test_size = 0.2, random_state = 0)
-    X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
+    #X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
+
+    if (apply_pca == True):
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value, True)
+    else:
+        X_train, X_test, y_train, y_test = dataset_preprocessing.prepare_training_data(dataset_df, target_value)
 
     # Initialise the linear regression.
     rf_model = RandomForestRegressor()
