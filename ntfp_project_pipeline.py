@@ -88,6 +88,8 @@ if __name__ == '__main__':
 
     print(rul_dataset)
 
+    # Apply normalisation to dataset.
+
     # Create baseline ML model tracking against RUL.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL')
 
@@ -98,4 +100,10 @@ if __name__ == '__main__':
     mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL')
 
     # Apply Principle Component Analysis to dataset.
+
+    # Undertake PCA on original dataset.
+
+    # Create new dataset with RUL and PCA components.
+
+    # Retrain and evaluate models.
 

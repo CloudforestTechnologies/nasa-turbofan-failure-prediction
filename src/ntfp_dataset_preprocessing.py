@@ -154,6 +154,21 @@ def add_calculated_rul(dataset_df):
 
     return rul_dataset_df
 
+def normalise_dataset(dataset_df, target_value):
+    """
+    Normalises all data in dataset, including target value, and returns new dataframe.
+    ======================================
+
+    Input:
+        dataset_df (dataframe) - Dataframe containing parent dataset.
+        target_value (string) - Column name for dataset target value.
+        
+    Output:
+	    normalised_dataset_df (dataframe) - Normalised data, including normalised target value.
+    """
+
+    pass
+
 def standardise_columns(dataset_df):  
     """
     Normalises and returns an [array] of data from an input dataset.
