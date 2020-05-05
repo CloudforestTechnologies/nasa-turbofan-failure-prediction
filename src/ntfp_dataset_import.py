@@ -34,8 +34,13 @@ def import_dataset():
         raw_data_df (dataframe) - Raw data as dataframe, with column names.
     """
 
-    # Import the raw data as an array.
-    raw_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+    # Import the raw data into series of dataframes.
+    first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+
+    second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+
+    # Append dataframes together.
+    raw_data_df = first_data_df.append(second_data_df)
     
     print(raw_data_df.head)
 
