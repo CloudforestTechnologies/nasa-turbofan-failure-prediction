@@ -35,20 +35,24 @@ def import_dataset():
     """
 
     # Import the raw data into series of dataframes.
-    first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+    #first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
 
-    second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+    #second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
+
+    first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
+
+    second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True)
 
     # Normalise engine number (index) for appending.
-    new_engine_number_list = second_data_df.index.tolist()
+    second_data_df['Engine'] = (second_data_df['Engine'] + 100).astype(int)
 
-    for index in range(len(new_engine_number_list)):
-        new_engine_number_list[index] += 100
-
-    print(new_engine_number_list)
+    print(second_data_df)
 
     # Append dataframes together.
     raw_data_df = first_data_df.append(second_data_df)
+
+    # Set index to engine number.
+    raw_data_df.set_index('Engine', inplace = True)
     
     print(raw_data_df.head)
 
