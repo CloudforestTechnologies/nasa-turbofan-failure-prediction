@@ -39,6 +39,14 @@ def import_dataset():
 
     second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True, index_col = 0)
 
+    # Normalise engine number (index) for appending.
+    new_engine_number_list = second_data_df.index.tolist()
+
+    for index in range(len(new_engine_number_list)):
+        new_engine_number_list[index] += 100
+
+    print(new_engine_number_list)
+
     # Append dataframes together.
     raw_data_df = first_data_df.append(second_data_df)
     
