@@ -186,6 +186,12 @@ def prepare_training_data(dataset_df, target_value, apply_pca = False):
         X_array = pca.fit_transform(X_array)
 
     y_array = dataset_df[target_value].values
+    print("y_max:")
+    y_max = dataset_df[target_value].max()
+    print(y_max)
+    print("y_mean:")
+    y_mean = dataset_df[target_value].mean()
+    print(y_mean)
 
     # Create split between training and test sets.
     print("Preparing Training Data ...")
