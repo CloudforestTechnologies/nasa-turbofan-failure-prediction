@@ -110,7 +110,7 @@ def train_multi_layer_NN_model(dataset_df, target_value, apply_pca):
 
     # Train the model.
     print("[mlp Neural Network] Training model ...")
-    mlp_model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs = 50, batch_size = 8)
+    mlp_model.fit(X_train, y_train, validation_data = (X_test, y_test), epochs = 10, batch_size = 8)
 
     # Make predictions on the test data.
     y_pred = mlp_model.predict(X_test)

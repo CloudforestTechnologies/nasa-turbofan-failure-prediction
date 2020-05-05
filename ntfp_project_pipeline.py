@@ -25,7 +25,6 @@ import src.ntfp_dataset_preprocessing as dataset_preprocessing
 
 if __name__ == '__main__':
 
-    '''
     # Import & peek data.
     raw_data_df = dataset_import.import_dataset()
 
@@ -35,7 +34,7 @@ if __name__ == '__main__':
     dataset_eda.visualise_sensor_correlation_all_engine(raw_data_df)
 
     # Reduce / Eliminate highly-correlated sensors.
-    correlation_threshold = 0.9
+    correlation_threshold = 0.97
     
     correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
     
@@ -66,7 +65,6 @@ if __name__ == '__main__':
     print(rul_dataset.head())
 
     rul_dataset.to_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
-    '''
     
     rul_dataset = pd.read_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
@@ -82,8 +80,11 @@ if __name__ == '__main__':
     # Order slopes by value.
     slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
 
-    # Drop all data columns except [5] most influential.
-    data_columns_not_influential = ['Cycles', 'Sn_21', 'Sn_20', 'Sn_17', 'Sn_02', 'Sn_03', 'Sn_09']
+    # Drop all data columns except [5] most influential, using array operators to identify & slice column names.
+    slope_slice = slope_order[5:]
+    data_columns = rul_dataset.columns.values[1:-1]
+    data_columns_not_influential = data_columns[slope_slice]
+    print(data_columns_not_influential)
     rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_not_influential)
 
     print(rul_dataset)

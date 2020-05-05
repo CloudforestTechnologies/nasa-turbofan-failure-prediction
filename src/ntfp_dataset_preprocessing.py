@@ -29,8 +29,12 @@ def dataset_remove_columns(dataset, columns_to_be_removed):
 	    processed_dataset (dataframe) - Final dataframe, with specified columns removed.
     """
 
+    processed_dataset = dataset
+
     # Remove columns.
-    processed_dataset = dataset.drop(columns = columns_to_be_removed, axis = 1)
+    for column in columns_to_be_removed:
+        if str(column) in processed_dataset.columns:
+            processed_dataset.drop(columns = column, axis = 1, inplace = True)
 
     return processed_dataset
 
