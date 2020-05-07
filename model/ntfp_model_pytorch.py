@@ -10,6 +10,8 @@ This file supports training and evalaution of a Neural Network Model, using PyTo
 ###################################
 import torch
 
+import src.ntfp_dataset_preprocessing as dataset_preprocessing
+
 def create_pytorch_tensors(data_df):
     """
     Create and return PyTorch Tensors from input dataframe.
@@ -22,7 +24,17 @@ def create_pytorch_tensors(data_df):
         X_tensor, y_tensor (Tensors) - PyTorch Tensors for use with NN models.
     """
 
-    pass
+    # Create numpy arrays of training and test data using helper method. 
+    X_train_array, X_test_array, y_train_array, y_test_array = dataset_preprocessing.prepare_training_data(data_df, 'Cycles')
+
+    print(X_train_array)
+
+    # Convert each array into Tensor.
+    X_train_tensor = torch.from_numpy(X_train_array)
+
+    print(X_train_tensor)
+
+    # Return Tensors.
 
 def create_pytorch_NN():
     """
