@@ -21,20 +21,20 @@ def create_pytorch_tensors(data_df):
         data_df (dataframe) - Dataframe with engine data to be modelled.
 
     Returns:
-        X_tensor, y_tensor (Tensors) - PyTorch Tensors for use with NN models.
+        X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor (Tensors) - PyTorch Tensors for use with NN models.
     """
 
     # Create numpy arrays of training and test data using helper method. 
     X_train_array, X_test_array, y_train_array, y_test_array = dataset_preprocessing.prepare_training_data(data_df, 'Cycles')
 
-    print(X_train_array)
-
     # Convert each array into Tensor.
     X_train_tensor = torch.from_numpy(X_train_array)
-
-    print(X_train_tensor)
+    X_test_tensor = torch.from_numpy(X_test_array)
+    y_train_tensor = torch.from_numpy(y_train_array)
+    y_test_tensor = torch.from_numpy(y_test_array)
 
     # Return Tensors.
+    return X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor
 
 def create_pytorch_NN():
     """

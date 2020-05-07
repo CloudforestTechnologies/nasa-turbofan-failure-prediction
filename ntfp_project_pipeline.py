@@ -100,7 +100,9 @@ if __name__ == '__main__':
     #mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate PyTorch nn.
-    pytorch_nn.create_pytorch_tensors(rul_dataset)
+    X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor = pytorch_nn.create_pytorch_tensors(rul_dataset)
+
+    print(y_test_tensor)
 
 '''
     # Retrain and evaluate models with PCA enabled.
