@@ -8,8 +8,9 @@ This file supports training and evalaution of a Neural Network Model, using PyTo
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+import torch
 
-def create_pytorch_tensors():
+def create_pytorch_tensors(data_df):
     """
     Create and return PyTorch Tensors from input dataframe.
     ======================================
@@ -18,7 +19,7 @@ def create_pytorch_tensors():
         data_df (dataframe) - Dataframe with engine data to be modelled.
 
     Returns:
-        tensors (Tensors) - PyTorch Tensors for use with NN models.
+        X_tensor, y_tensor (Tensors) - PyTorch Tensors for use with NN models.
     """
 
     pass

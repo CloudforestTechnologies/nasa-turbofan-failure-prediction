@@ -13,6 +13,7 @@ This script trains and evaluates a series of ML models to predict failure on tur
 import pandas as pd
 
 import model.ntfp_model_multilayerperceptron as mlp_nn
+import model.ntfp_model_pytorch as pytorch_nn
 import model.ntfp_model_randomforest as random_forest
 import src.ntfp_dataset_baseline as dataset_baseline
 import src.ntfp_dataset_exploratory as dataset_eda
@@ -98,10 +99,12 @@ if __name__ == '__main__':
     # Train / evaluate NN.
     mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
 
+    # Train / evaluate PyTorch nn.
+
+
     # Retrain and evaluate models with PCA enabled.
     baseline_model_PCA = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = True)
 
     random_forest_model_PCA = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = True)
 
     mlp_NN_model_PCA = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = True)
-
