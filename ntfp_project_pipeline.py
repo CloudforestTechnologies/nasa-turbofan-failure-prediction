@@ -64,9 +64,9 @@ if __name__ == '__main__':
     
     print(rul_dataset.head())
 
-    rul_dataset.to_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+    rul_dataset.to_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
     
-    rul_dataset = pd.read_pickle(r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+    rul_dataset = pd.read_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
     print(rul_dataset.head())
 

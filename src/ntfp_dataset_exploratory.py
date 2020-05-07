@@ -13,7 +13,7 @@ import pandas as pd
 import seaborn as sns
 
 # Constants
-plot_storage_string = r'C:\Users\ASUS-PC\OneDrive\Cloudforest Technologies\M. Projects\Pink Moss\WP2.0 - NASA Turbofan Failure Prediction\Images'
+plot_storage_string = r'C:\Users\paulm\OneDrive\Desktop\Pics'
 
 def visualise_sensor_correlation_all_engine(data_df):
     """
