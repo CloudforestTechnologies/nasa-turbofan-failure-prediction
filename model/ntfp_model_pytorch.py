@@ -58,33 +58,44 @@ def create_pytorch_NN(input_dimension):
     # Return model.
     return model
 
-def train_pytorch_NN():
+def train_pytorch_NN(X_train, y_train, model, iterations = 200):
     """
     Train PyTorch neural network using Tensors.
     ======================================
 
     Args:
-        tensors (Tensors) - PyTorch tensor training data.
+        X_train (Tensor) - PyTorch tensor training data.
+        y_train (Tensor) - PyTorch tensor training data.
         model (Neural Network) - PyTorch neural network, untrained.
         iterations (Int) - Number of training iterations to perform.
 
     Returns:
-        trained_model (Neural Network) - PyTorch Neural Network model, trained.
+        model (Neural Network) - PyTorch Neural Network model, trained.
     """
 
     # Initialise Loss Function, optimiser and learning rate.
+    loss_func = torch.nn.MSELoss()
+    learning_rate = 1e-3
+    opt = torch.optim.Adam(model.parameters(), lr = learning_rate)
 
     # Train the model over iteration cycles.
+    for iteration in range(iterations):
 
         # Forward pass: Compute predicted y from model working on x.
+        y_pred = model(X_train)
 
         # Compute and print loss.
+        loss = loss_func(y_pred, y_train)
+        if iteration % 100 == 99:
+            print(iteration, loss.item())
 
-        # Zero gradients, performa a backward pass, and update weights.
+        # Zero gradients, perform a backward pass, and update weights.
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
 
     # Return weight-adjusted model.
-
-    pass
+    return model
 
 def evaluate_pytorch_NN():
     """
@@ -121,12 +132,8 @@ def build_train_evaluate_pytorch_NN(data_df):
     # Create model.
     pytorch_model = create_pytorch_NN(X_train_tensor.shape[1])
 
-    # Compile model.
-    learning_rate = 1e-3
-    opt = torch.optim.Adam(pytorch_model.parameters(), lr = learning_rate)
-    pytorch_model.
-
     # Train model.
+    model = train_pytorch_NN(X_train_tensor, y_train_tensor, model, 10)
 
     # Evaluate model.
 
