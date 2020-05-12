@@ -8,6 +8,8 @@ This file supports training and evalaution of a Neural Network Model, using PyTo
 ###################################
 # Module Importations (A - Z Format)
 ###################################
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
 import torch
 
 import src.ntfp_dataset_preprocessing as dataset_preprocessing
@@ -58,7 +60,7 @@ def create_pytorch_NN(input_dimension):
     # Return model.
     return model
 
-def train_pytorch_NN(X_train, y_train, model, iterations = 200):
+def train_pytorch_NN(X_train, y_train, model, epochs = 200):
     """
     Train PyTorch neural network using Tensors.
     ======================================
@@ -67,7 +69,7 @@ def train_pytorch_NN(X_train, y_train, model, iterations = 200):
         X_train (Tensor) - PyTorch tensor training data.
         y_train (Tensor) - PyTorch tensor training data.
         model (Neural Network) - PyTorch neural network, untrained.
-        iterations (Int) - Number of training iterations to perform.
+        epochs (Int) - Number of training epochs to perform.
 
     Returns:
         model (Neural Network) - PyTorch Neural Network model, trained.
@@ -79,15 +81,15 @@ def train_pytorch_NN(X_train, y_train, model, iterations = 200):
     opt = torch.optim.Adam(model.parameters(), lr = learning_rate)
 
     # Train the model over iteration cycles.
-    for iteration in range(iterations):
+    for epoch in range(epochs):
 
         # Forward pass: Compute predicted y from model working on x.
         y_pred = model(X_train)
 
         # Compute and print loss.
         loss = loss_func(y_pred, y_train)
-        if iteration % 100 == 99:
-            print(iteration, loss.item())
+        if epoch % 100 == 99:
+            print(epoch, loss.item())
 
         # Zero gradients, perform a backward pass, and update weights.
         opt.zero_grad()
@@ -97,20 +99,31 @@ def train_pytorch_NN(X_train, y_train, model, iterations = 200):
     # Return weight-adjusted model.
     return model
 
-def evaluate_pytorch_NN():
+def evaluate_pytorch_NN(model, X_test, y_test):
     """
     Evaluate PyTorch neural network.
     ======================================
 
     Args:
-        nn (Neural Network) - PyTorch neural network to undergo evaluation.
-        test_data (Tensors) - PyTorch Tensors on which model is evaluated.
+        model (Neural Network) - PyTorch neural network to undergo evaluation.
+        X_test (Tensor) - PyTorch Tensor on which model is evaluated.
+        y_test (Tensor) - PyTorch Tensor on which model is evaluated.
 
     Returns:
-        evaluation_results (tuple) - Results of Neural Network evaluation.
+        None.
     """
 
-    pass
+    # Make predictions.
+    y_pred = model(X_test)
+
+    # Convert to numpy array if needed.
+
+    # Evaluate predictions.
+    mae = mean_absolute_error(y_test, y_pred)
+    print("PyTorch NN MAE: " + str(mae))
+
+    rmse = mean_squared_error(y_test, y_pred, squared = False)
+    print("PyTorch NN MSE: " + str(rmse))
 
 def build_train_evaluate_pytorch_NN(data_df):
     """
@@ -133,8 +146,7 @@ def build_train_evaluate_pytorch_NN(data_df):
     pytorch_model = create_pytorch_NN(X_train_tensor.shape[1])
 
     # Train model.
-    model = train_pytorch_NN(X_train_tensor, y_train_tensor, model, 10)
+    trained_model = train_pytorch_NN(X_train_tensor, y_train_tensor, pytorch_model, 10)
 
     # Evaluate model.
-
-    pass
+    evaluate_pytorch_NN(trained_model, X_test_tensor, y_test_tensor)

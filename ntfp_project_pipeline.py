@@ -100,8 +100,7 @@ if __name__ == '__main__':
     #mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate PyTorch nn.
-    X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor = pytorch_nn.create_pytorch_tensors(rul_dataset)
-
+    build_train_evaluate_pytorch_NN(rul_dataset)
     
 
 '''
