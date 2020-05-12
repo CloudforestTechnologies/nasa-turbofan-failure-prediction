@@ -65,10 +65,24 @@ def train_pytorch_NN():
 
     Args:
         tensors (Tensors) - PyTorch tensor training data.
+        model (Neural Network) - PyTorch neural network, untrained.
+        iterations (Int) - Number of training iterations to perform.
 
     Returns:
-        nn (Neural Network) - PyTorch Neural Network.
+        trained_model (Neural Network) - PyTorch Neural Network model, trained.
     """
+
+    # Initialise Loss Function, optimiser and learning rate.
+
+    # Train the model over iteration cycles.
+
+        # Forward pass: Compute predicted y from model working on x.
+
+        # Compute and print loss.
+
+        # Zero gradients, performa a backward pass, and update weights.
+
+    # Return weight-adjusted model.
 
     pass
 
@@ -87,7 +101,7 @@ def evaluate_pytorch_NN():
 
     pass
 
-def build_train_evaluate_pytorch_NN():
+def build_train_evaluate_pytorch_NN(data_df):
     """
     Build, train and evaluate (master method) PyTorch neural network.
     ======================================
@@ -98,5 +112,22 @@ def build_train_evaluate_pytorch_NN():
     Returns:
         None.
     """
+
+    pytorch_df = data_df
+
+    # Create training and test tensors.
+    X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor = create_pytorch_tensors(pytorch_df)
+
+    # Create model.
+    pytorch_model = create_pytorch_NN(X_train_tensor.shape[1])
+
+    # Compile model.
+    learning_rate = 1e-3
+    opt = torch.optim.Adam(pytorch_model.parameters(), lr = learning_rate)
+    pytorch_model.
+
+    # Train model.
+
+    # Evaluate model.
 
     pass
