@@ -36,33 +36,27 @@ def create_pytorch_tensors(data_df):
     # Return Tensors.
     return X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor
 
-def create_pytorch_NN():
+def create_pytorch_NN(input_dimension):
     """
     Initialise and return PyTorch neural network.
     ======================================
 
     Args:
-        None.
+        input_dimension (int) - Input dimension used in first layer of model (Use training data shape).
 
     Returns:
         nn (Neural Network) - PyTorch Neural Network.
     """
 
-    pass
+    # Define model & network.
+    model = torch.nn.Sequential(
+        torch.nn.Linear(input_dimension, 4),
+        torch.nn.ReLU(),
+        torch.nn.Linear(4, 1)
+        )
 
-def train_pytorch_NN():
-    """
-    Train PyTorch neural network using Tensors.
-    ======================================
-
-    Args:
-        tensors (Tensors) - PyTorch tensor training data.
-
-    Returns:
-        nn (Neural Network) - PyTorch Neural Network.
-    """
-
-    pass
+    # Return model.
+    return model
 
 def train_pytorch_NN():
     """
@@ -89,6 +83,20 @@ def evaluate_pytorch_NN():
 
     Returns:
         evaluation_results (tuple) - Results of Neural Network evaluation.
+    """
+
+    pass
+
+def build_train_evaluate_pytorch_NN():
+    """
+    Build, train and evaluate (master method) PyTorch neural network.
+    ======================================
+
+    Args:
+        data_df (dataframe) - Dataframe with engine data to be modelled.
+
+    Returns:
+        None.
     """
 
     pass

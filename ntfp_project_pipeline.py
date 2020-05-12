@@ -102,7 +102,7 @@ if __name__ == '__main__':
     # Train / evaluate PyTorch nn.
     X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor = pytorch_nn.create_pytorch_tensors(rul_dataset)
 
-    print(y_test_tensor)
+    
 
 '''
     # Retrain and evaluate models with PCA enabled.
