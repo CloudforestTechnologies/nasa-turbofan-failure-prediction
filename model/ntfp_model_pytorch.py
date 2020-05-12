@@ -75,6 +75,13 @@ def train_pytorch_NN(X_train, y_train, model, epochs = 200):
         model (Neural Network) - PyTorch Neural Network model, trained.
     """
 
+    print(X_train)
+
+    # Convert model to work with double.
+    model.to(torch.float)
+    X_train.to(torch.float32)
+    print(X_train)
+
     # Initialise Loss Function, optimiser and learning rate.
     loss_func = torch.nn.MSELoss()
     learning_rate = 1e-3
@@ -84,10 +91,12 @@ def train_pytorch_NN(X_train, y_train, model, epochs = 200):
     for epoch in range(epochs):
 
         # Forward pass: Compute predicted y from model working on x.
-        y_pred = model(X_train)
+        y_pred = model(X_train.float())
+
+        y_pred.float()
 
         # Compute and print loss.
-        loss = loss_func(y_pred, y_train)
+        loss = loss_func(y_pred, y_train.float())
         if epoch % 100 == 99:
             print(epoch, loss.item())
 
