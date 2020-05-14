@@ -124,9 +124,12 @@ def evaluate_pytorch_NN(model, X_test, y_test):
     # Make predictions.
     y_pred = model(X_test)
 
-    print(y_pred)
+    # Reshape y_test, if needed.
+    y_test = y_test.view(-1, 1)
 
     # Convert to numpy array if needed.
+    y_test = y_test.numpy()
+    y_pred = y_pred.detach().numpy()
 
     # Evaluate predictions.
     mae = mean_absolute_error(y_test, y_pred)
