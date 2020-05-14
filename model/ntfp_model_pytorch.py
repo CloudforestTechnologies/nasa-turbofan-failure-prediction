@@ -35,6 +35,12 @@ def create_pytorch_tensors(data_df):
     y_train_tensor = torch.from_numpy(y_train_array)
     y_test_tensor = torch.from_numpy(y_test_array)
 
+    # Convert Tensor data type to float.
+    X_train_tensor = X_train_tensor.float()
+    X_test_tensor = X_test_tensor.float()
+    y_train_tensor = y_train_tensor.float()
+    y_test_tensor = y_test_tensor.float()
+
     # Return Tensors.
     return X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor
 
@@ -75,12 +81,8 @@ def train_pytorch_NN(X_train, y_train, model, epochs = 200):
         model (Neural Network) - PyTorch Neural Network model, trained.
     """
 
-    print(X_train)
-
-    # Convert model to work with double.
-    model.to(torch.float)
-    X_train.to(torch.float32)
-    print(X_train)
+    # Reshape y_train to work with model output / loss.
+    y_train = y_train.view(-1, 1)
 
     # Initialise Loss Function, optimiser and learning rate.
     loss_func = torch.nn.MSELoss()
@@ -91,14 +93,11 @@ def train_pytorch_NN(X_train, y_train, model, epochs = 200):
     for epoch in range(epochs):
 
         # Forward pass: Compute predicted y from model working on x.
-        y_pred = model(X_train.float())
-
-        y_pred.float()
+        y_pred = model(X_train)
 
         # Compute and print loss.
-        loss = loss_func(y_pred, y_train.float())
-        if epoch % 100 == 99:
-            print(epoch, loss.item())
+        loss = loss_func(y_pred, y_train)
+        print(epoch, loss.item())
 
         # Zero gradients, perform a backward pass, and update weights.
         opt.zero_grad()
@@ -124,6 +123,8 @@ def evaluate_pytorch_NN(model, X_test, y_test):
 
     # Make predictions.
     y_pred = model(X_test)
+
+    print(y_pred)
 
     # Convert to numpy array if needed.
 
