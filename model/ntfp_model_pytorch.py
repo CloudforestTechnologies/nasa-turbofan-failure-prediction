@@ -97,7 +97,7 @@ def train_pytorch_NN(X_train, y_train, model, epochs = 200):
 
         # Compute and print loss.
         loss = loss_func(y_pred, y_train)
-        print(epoch, loss.item())
+        print("Epoch: " + epoch.__str__(), loss.item().__str__())
 
         # Zero gradients, perform a backward pass, and update weights.
         opt.zero_grad()
