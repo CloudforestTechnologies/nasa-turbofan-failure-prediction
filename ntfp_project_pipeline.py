@@ -97,7 +97,7 @@ if __name__ == '__main__':
     #random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate NN.
-    #mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
+    mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate PyTorch nn.
     pytorch_nn.build_train_evaluate_pytorch_NN(rul_dataset)
