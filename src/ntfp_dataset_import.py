@@ -17,10 +17,10 @@ dataset_columns = ('Engine', 'Cycles','Set-1', 'Set-2', 'Set-3',
                     'Sn_08', 'Sn_09', 'Sn_10', 'Sn_11', 'Sn_12', 'Sn_13', 'Sn_14',
                     'Sn_15', 'Sn_16', 'Sn_17', 'Sn_18', 'Sn_19', 'Sn_20', 'Sn_21' ) 
 
-filename1_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD001.txt'
-filename2_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD002.txt'
-filename3_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD003.txt'
-filename4_string = r'C:\Developer\PMetcalf\nasa_turbofan_failure_prediction\data\train_FD004.txt'
+filename1_string = r'D:\Developer Area\nasa_turbofan_failure_prediction\data\train_FD001.txt'
+filename2_string = r'D:\Developer Area\nasa_turbofan_failure_prediction\data\train_FD002.txt'
+filename3_string = r'D:\Developer Area\nasa_turbofan_failure_prediction\data\train_FD003.txt'
+filename4_string = r'D:\Developer Area\nasa_turbofan_failure_prediction\data\train_FD004.txt'
 
 def import_dataset():
     """
