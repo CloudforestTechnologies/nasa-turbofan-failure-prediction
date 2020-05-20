@@ -13,7 +13,7 @@ import pandas as pd
 import seaborn as sns
 
 # Constants
-plot_storage_string = r'C:\Users\paulm\OneDrive\Desktop\Pics'
+plot_storage_string = r'C:\Users\paulm\OneDrive\Cloudforest Technologies\M. Projects\Pink Moss\WP2.0 - NASA Turbofan Failure Prediction\Images'
 
 def visualise_sensor_correlation_all_engine(data_df):
     """
@@ -55,7 +55,31 @@ def visualise_sensor_data_distribution(dataset_df):
     Returns:
         None.
     """
-    pass
+
+    # Prepare dataset for plot.
+    plotted_dataset_df = dataset_df.copy()
+
+    columns = plotted_dataset_df.columns
+
+    figs_per_row = 4
+    n_columns = len(columns)
+    n_rows = int(n_columns / figs_per_row)
+
+    # Create plot.
+    fig, axes = plt.subplots(n_rows, n_columns)
+    fig.suptitle('distributions for all engines')
+
+    for column, ax in zip(columns, axes):
+        
+        ax = plt.hist(plotted_dataset_df[column], label = column)
+
+        #fontdict = {'fontsize': 14}
+        #ax.set_title(column, loc = 'left', fontdict = fontdict)
+
+
+    # Save plot.
+    plt.show()
+    
 
 def plot_time_history_all_engines(dataset_df):
     """
@@ -76,7 +100,7 @@ def plot_time_history_all_engines(dataset_df):
 
     columns = plotted_dataset_df.columns
 
-    # Define and show correlation plot.
+    # Define and show plot.
     fig, axes = plt.subplots(len(columns) - 1, 1, figsize = (19, 17))
 
     for column, ax in zip(columns, axes):
