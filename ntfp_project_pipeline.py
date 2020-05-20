@@ -37,7 +37,7 @@ if __name__ == '__main__':
     dataset_eda.visualise_sensor_correlation_all_engine(raw_data_df)
 
     # Reduce / Eliminate highly-correlated sensors.
-    correlation_threshold = 0.97
+    correlation_threshold = 0.95
     
     correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
     

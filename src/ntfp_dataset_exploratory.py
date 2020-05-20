@@ -63,19 +63,19 @@ def visualise_sensor_data_distribution(dataset_df):
 
     figs_per_row = 4
     n_columns = len(columns)
-    n_rows = int(n_columns / figs_per_row)
+    n_rows = (int(n_columns / figs_per_row)) + 1
 
     # Create plot.
-    fig, axes = plt.subplots(n_rows, n_columns)
-    fig.suptitle('distributions for all engines')
+    fig, axes = plt.subplots(n_rows, figs_per_row)
+
+    axes = axes.flatten()
+
+    fig.suptitle('Sensor Distributions - All Engines')
 
     for column, ax in zip(columns, axes):
         
-        ax = plt.hist(plotted_dataset_df[column], label = column)
-
-        #fontdict = {'fontsize': 14}
-        #ax.set_title(column, loc = 'left', fontdict = fontdict)
-
+        ax = sns.distplot(plotted_dataset_df[column], ax = ax, label = column)
+        ax.legend(loc=1)
 
     # Save plot.
     plt.show()
