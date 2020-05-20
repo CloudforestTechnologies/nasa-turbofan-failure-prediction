@@ -159,7 +159,7 @@ def build_train_evaluate_pytorch_NN(data_df):
     pytorch_model = create_pytorch_NN(X_train_tensor.shape[1])
 
     # Train model.
-    trained_model = train_pytorch_NN(X_train_tensor, y_train_tensor, pytorch_model, 200)
+    trained_model = train_pytorch_NN(X_train_tensor, y_train_tensor, pytorch_model, 200000)
 
     # Evaluate model.
     evaluate_pytorch_NN(trained_model, X_test_tensor, y_test_tensor)
