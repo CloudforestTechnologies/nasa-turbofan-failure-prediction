@@ -1,10 +1,12 @@
 # NASA Turbofan Failure Prediction
 
-This project builds a simple data pipeline and a series of machine learning models to predict the onset of failure in terms of remaining engine cycles for simulated turbofan data from NASA. 
+This data analytics / machine learning project investigates the relationship between behavioural variables and the onset of failure (in terms of remaining engine cycles) for simulated operational turbofan data from a NASA research project. 
 
-Models from sklearn, TensorFlow (Keras) and PyTorch are trained on equivalent data sets and compared for performance and accuracy.
+The project starts with data visualisation and exploration, folowed by the development of predictive models for rotor and stator temperatures using linear regression, ensemble methods and neural networks using the Keras API.
 
 Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
+
+An article about this investigation can be found at: https://www.cloudforesttechnologies.com/post/predictive-analytics-implementation-strategies
 
 # Project Objectives
 
@@ -15,11 +17,11 @@ Training data is sourced from the NASA Prognostics Center Data Repository: https
 
 xxx
 
-The three sets of target variables included:
+# Predictive Modelling
 
 xxx
 
-#Installation & Setup
+# Installation & Setup
 
 The following packages are required to support this project:
 
@@ -34,5 +36,3 @@ Clone this repository from: https://github.com/PMetcalf/nasa_turbofan_failure_pr
 This project drew inspiration from work by Ali-Alhamaly (https://medium.com/@hamalyas_/jet-engine-remaining-useful-life-rul-prediction-a8989d52f194) and Roshan Alwis & Srinath Perea (https://www.infoq.com/articles/machine-learning-techniques-predictive-maintenance/)
 
 Data was made available from the NASA Prognostics Center of Excellence.
-
-Remaining Useful Life Estimation: https://www.mathworks.com/help/predmaint/examples/similarity-based-remaining-useful-life-estimation.html#SimilarityBasedRULExample-10
