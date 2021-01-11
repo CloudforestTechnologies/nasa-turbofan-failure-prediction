@@ -6,18 +6,24 @@ Models from sklearn, TensorFlow (Keras) and PyTorch are trained on equivalent da
 
 Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
 
-# Uses
+# Project Objectives
 
-1. Engine data importation and visualisation.
-2. Data cleaning and preprocessing techniques.
-3. ML model training and optimisation.
-4. Model evaluation and comparison.
+1. To analyse relationships between engine behaviour and remaining useful lifetime.
+2. To develop predictive models for remaining useful lifetime.
 
-# Installation & Setup
+# Exploring the Dataset
+
+xxx
+
+The three sets of target variables included:
+
+xxx
+
+#Installation & Setup
 
 The following packages are required to support this project:
 
-numpy, pandas, matplotlib, seaborn, sklearn, keras, torch. 
+numpy, pandas, matplotlib, seaborn, sklearn, keras.
 
 # Clone
 
