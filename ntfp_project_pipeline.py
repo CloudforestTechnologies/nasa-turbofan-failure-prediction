@@ -37,15 +37,15 @@ if __name__ == '__main__':
     #dataset_eda.visualise_sensor_correlation_all_engine(raw_data_df)
 
     # Reduce / Eliminate highly-correlated sensors.
-    correlation_threshold = 0.95
+    #correlation_threshold = 0.95
     
-    correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
+    #correlated_data = dataset_preprocessing.find_correlated_data(raw_data_df, correlation_threshold)
     
-    columns_to_be_removed = dataset_preprocessing.list_correlated_data(correlated_data)
+    #columns_to_be_removed = dataset_preprocessing.list_correlated_data(correlated_data)
     
-    processed_df = dataset_preprocessing.dataset_remove_columns(raw_data_df, columns_to_be_removed)
+    #processed_df = dataset_preprocessing.dataset_remove_columns(raw_data_df, columns_to_be_removed)
 
-    print(processed_df.info)
+    #print(processed_df.info)
 
     # Visualise distribution of sensor values.
     dataset_eda.visualise_sensor_data_distribution(processed_df)
