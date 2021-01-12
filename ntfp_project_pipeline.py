@@ -29,9 +29,9 @@ if __name__ == '__main__':
     # Storage container for model performance.
 
     # Import & peek data.
-    raw_data_df = dataset_import.import_dataset()
+    #raw_data_df = dataset_import.import_dataset()
 
-    dataset_import.peek_dataset(raw_data_df)
+    #dataset_import.peek_dataset(raw_data_df)
     
     # Visualise engine sensor correlation data.
     dataset_eda.visualise_sensor_correlation_all_engine(raw_data_df)
