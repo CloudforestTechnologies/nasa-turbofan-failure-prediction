@@ -9,7 +9,7 @@ def return_project_code():
     return 'PM'
 
 def return_fig_save_path():
-    return r'C:\Developer\nasa-turbofan-failure-prediction\Reports\Figures'
+    return r'C:/Developer/nasa-turbofan-failure-prediction/Reports/Figures'
 
 def return_model_save_path():
-    return r'C:\Developer\nasa-turbofan-failure-prediction\Models'
+    return r'C:/Developer/nasa-turbofan-failure-prediction/Models'
