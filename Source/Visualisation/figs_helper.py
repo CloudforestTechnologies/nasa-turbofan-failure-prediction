@@ -11,7 +11,7 @@ from Source import constants
 
 # Constants
 TITLE_FONTSIZE = 18
-SAVE_FORMAT = '.png'
+SAVE_FORMAT = 'png'
 SAVE_DPI = 600
 
 # Helper Method for saving figures
@@ -36,7 +36,7 @@ def generate_fig_save_string(filename):
     timestamp_str = timestamp.strftime('%Y_%m_%d-%H_%M_%S')
 
     # build filepath
-    filepath = filedirectory + '/' + proj_code + '_' + filename + '_' + timestamp_str + SAVE_FORMAT
+    filepath = filedirectory + '/' + proj_code + '_' + filename + '_' + timestamp_str + '.' + SAVE_FORMAT
 
     # Return save string
     return filepath
