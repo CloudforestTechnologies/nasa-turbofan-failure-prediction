@@ -156,8 +156,8 @@ def add_calculated_rul(dataset_df):
         print("Calculating & Appending RUl for Engine " + str(engine))
 
         # RUL is negative and trends to zero (end of life point)
-        #rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: x - rul_dataset_df.loc[engine]['Cycles'].max())
-        rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: rul_dataset_df.loc[engine]['Cycles'].max() - x)
+        rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: x - rul_dataset_df.loc[engine]['Cycles'].max())
+        #rul_dataset_df.loc[engine, 'RUL'] = rul_dataset_df.loc[engine]['Cycles'].apply(lambda x: rul_dataset_df.loc[engine]['Cycles'].max() - x)
 
     return rul_dataset_df
 
