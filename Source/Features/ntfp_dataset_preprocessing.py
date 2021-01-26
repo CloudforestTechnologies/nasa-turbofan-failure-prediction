@@ -107,21 +107,21 @@ def list_correlated_data(correlated_data):
     # Return list.
     return data_list
 
-def find_time_independent_columns(data_df):
+def find_time_independent_columns(data_df, std_threshold):
     """
     Returns a list of columns that do not change with time.
     ======================================
 
     Input:
 	    data_df (dataframe) - Dataframe containing time-series data.
+        std_threshold (float) - Threshold used to determine if data is time-independent.
         
     Output:
 	    unchanging_columns (list) - List of columns from dataframe which do not change with time.
     """
     
     unchanging_columns = []
-    std_threshold = 0.0001
-
+    
     # Iterate over columns; Identify if std is close-coupled to mean.
     for column in data_df.columns:
 
