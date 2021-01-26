@@ -51,7 +51,7 @@ if __name__ == '__main__':
     #dataset_eda.visualise_sensor_data_distribution(processed_df)
 
     # Remove data that does not change with time.
-    time_independent_columns = dataset_preprocessing.find_time_independent_columns(processed_df)
+    #time_independent_columns = dataset_preprocessing.find_time_independent_columns(processed_df)
     
     processed_df = dataset_preprocessing.dataset_remove_columns(processed_df, time_independent_columns)
 
