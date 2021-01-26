@@ -58,9 +58,9 @@ if __name__ == '__main__':
     #print(processed_df.info)
 
     # Add Remaining Useful Life (RUL) to dataset.
-    rul_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
+    #rul_dataset = dataset_preprocessing.add_calculated_rul(processed_df)
 
-    print(rul_dataset.head())
+    #print(rul_dataset.head())
 
     # Visualise sensor behaviour against RUL.
     dataset_eda.plot_time_history_all_engines(rul_dataset)
