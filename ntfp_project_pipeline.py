@@ -82,13 +82,13 @@ if __name__ == '__main__':
     #slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
 
     # Drop all data columns except [5] most influential, using array operators to identify & slice column names.
-    slope_slice = slope_order[5:]
-    data_columns = rul_dataset.columns.values[1:-1]
-    data_columns_not_influential = data_columns[slope_slice]
-    print(data_columns_not_influential)
-    rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_not_influential)
+    #slope_slice = slope_order[5:]
+    #data_columns = rul_dataset.columns.values[1:-1]
+    #data_columns_not_influential = data_columns[slope_slice]
+    #print(data_columns_not_influential)
+    #rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_not_influential)
 
-    print(rul_dataset)
+    #print(rul_dataset)
 
     # Save processed data set.
     #rul_dataset.to_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
