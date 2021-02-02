@@ -93,10 +93,10 @@ def pickle_data(input_dataframe, filename):
 
     print("Pickling dataframe ...")
 
-    pickle_directory = constants
+    pickle_directory = constants.return_data_pickle_path()
 
     # Build pickle string
-    pickle_string = PICKLE_DIRECTORY + "/" + filename + ".pkl"
+    pickle_string = pickle_directory + "/" + filename + ".pkl"
 
     # Pickle dataframe
     input_dataframe.to_pickle(pickle_string)
