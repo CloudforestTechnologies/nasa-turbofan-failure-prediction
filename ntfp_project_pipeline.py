@@ -72,11 +72,11 @@ if __name__ == '__main__':
     #print(rul_dataset.head())
 
     # Standardise remaining data columns.
-    normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
+    #normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)
 
     # Calculate slope for each data value via linear regression.
-    slopes_df, slopes_array = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
-    print(slopes_df.describe())
+    #slopes_df, slopes_array = dataset_preprocessing.calculate_slopes_all_engines(rul_dataset, normalised_data)
+    #print(slopes_df.describe())
 
     # Order slopes by value.
     slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
