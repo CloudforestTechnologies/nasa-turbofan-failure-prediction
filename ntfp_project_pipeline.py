@@ -66,10 +66,10 @@ if __name__ == '__main__':
     # dataset_eda.plot_time_history_all_engines(rul_dataset)
 
     # Remove data columns with no apparent trend.
-    data_columns_no_trend = ['Set-1', 'Set-2']
-    rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
+    #data_columns_no_trend = ['Set-1', 'Set-2']
+    #rul_dataset = dataset_preprocessing.dataset_remove_columns(rul_dataset, data_columns_no_trend)
     
-    print(rul_dataset.head())
+    #print(rul_dataset.head())
 
     # Standardise remaining data columns.
     normalised_data = dataset_preprocessing.standardise_columns(rul_dataset)

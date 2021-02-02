@@ -10,6 +10,7 @@ This file supports dataset importation and exploratory data analysis.
 ###################################
 import numpy as np
 import pandas as pd
+from Source import constants
 
 # Constants
 dataset_columns = ('Engine', 'Cycles','Set-1', 'Set-2', 'Set-3', 
@@ -76,3 +77,28 @@ def peek_dataset(data_df):
     print(data_df.info())
 
     print(data_df.describe())
+
+def pickle_data(input_dataframe, filename):
+    """Pickle Data
+    ======================================
+    Pickles data into a dataframe saved in user-specified directory.
+    
+    Args:
+        input_dataframe (dataframe) - Dataframe to be pickled.
+        filename (str) - Name of pickled file.
+        
+    Returns:
+        None.
+    """
+
+    print("Pickling dataframe ...")
+
+    pickle_directory = constants
+
+    # Build pickle string
+    pickle_string = PICKLE_DIRECTORY + "/" + filename + ".pkl"
+
+    # Pickle dataframe
+    input_dataframe.to_pickle(pickle_string)
+
+    print("Pickled dataframe to: " + pickle_string)
