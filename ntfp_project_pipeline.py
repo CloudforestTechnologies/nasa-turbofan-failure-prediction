@@ -63,7 +63,7 @@ if __name__ == '__main__':
     #print(rul_dataset.head())
 
     # Visualise sensor behaviour against RUL.
-    dataset_eda.plot_time_history_all_engines(rul_dataset)
+    # dataset_eda.plot_time_history_all_engines(rul_dataset)
 
     # Remove data columns with no apparent trend.
     data_columns_no_trend = ['Set-1', 'Set-2']
