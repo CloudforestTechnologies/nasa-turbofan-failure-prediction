@@ -91,9 +91,9 @@ if __name__ == '__main__':
     print(rul_dataset)
 
     # Save processed data set.
-    rul_dataset.to_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+    #rul_dataset.to_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
     
-    rul_dataset = pd.read_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
+    #rul_dataset = pd.read_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
     # Create baseline ML model tracking against RUL.
     baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = False)
