@@ -79,7 +79,7 @@ if __name__ == '__main__':
     #print(slopes_df.describe())
 
     # Order slopes by value.
-    slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
+    #slope_order = dataset_preprocessing.return_data_ordered_abs_value(slopes_array, rul_dataset)
 
     # Drop all data columns except [5] most influential, using array operators to identify & slice column names.
     slope_slice = slope_order[5:]
