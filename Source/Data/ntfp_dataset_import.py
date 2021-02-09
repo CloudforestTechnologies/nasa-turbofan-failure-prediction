@@ -35,9 +35,9 @@ def import_dataset(load_all_data = False):
         raw_data_df (dataframe) - Raw data as dataframe, with column names.
     """
 
-    print("Loading Dataset ...")
-
     if (load_all_data):
+
+        print("Loading All Data ...")
         
         # Import the raw data into series of dataframes.
         first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
@@ -74,6 +74,8 @@ def import_dataset(load_all_data = False):
         raw_data_df = raw_data_df.append(fourth_data_df)
 
     else:
+        print("Loading First Dataset ...")
+
         first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
         
         raw_data_df = first_data_df
