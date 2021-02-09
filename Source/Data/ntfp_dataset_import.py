@@ -23,39 +23,65 @@ filename2_string = r'C:\Developer\nasa-turbofan-failure-prediction\Data\Raw\trai
 filename3_string = r'C:\Developer\nasa-turbofan-failure-prediction\Data\Raw\train_FD003.txt'
 filename4_string = r'C:\Developer\nasa-turbofan-failure-prediction\Data\Raw\train_FD004.txt'
 
-def import_dataset():
+def import_dataset(load_all_data = False):
     """
     Import the dataset as a dataframe, adding column names.
     ======================================
 
     Input:
-        None.
+        load_all_data (Bool) - Loads all data if set to true.
 
     Output:
         raw_data_df (dataframe) - Raw data as dataframe, with column names.
     """
 
-    # Import the raw data into series of dataframes.
-    first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
-    #second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True)
-    #third_data_df = pd.read_csv(filename3_string, header = None, names = dataset_columns, delim_whitespace = True)
-    #fourth_data_df = pd.read_csv(filename4_string, header = None, names = dataset_columns, delim_whitespace = True)
+    print("Loading Dataset ...")
 
-    # Normalise engine number (index) for appending.
-    #second_data_df['Engine'] = (second_data_df['Engine'] + 100).astype(int)
-    #third_data_df['Engine'] = (third_data_df['Engine'] + 360).astype(int)
-    #fourth_data_df['Engine'] = (fourth_data_df['Engine'] + 460).astype(int)
+    if (load_all_data):
+        
+        # Import the raw data into series of dataframes.
+        first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
+        second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True)
+        third_data_df = pd.read_csv(filename3_string, header = None, names = dataset_columns, delim_whitespace = True)
+        fourth_data_df = pd.read_csv(filename4_string, header = None, names = dataset_columns, delim_whitespace = True)
 
-    # Append dataframes together.
-    raw_data_df = first_data_df
-    #raw_data_df = first_data_df.append(second_data_df)
-    #raw_data_df = raw_data_df.append(third_data_df)
-    #raw_data_df = raw_data_df.append(fourth_data_df)
+        # Normalise engine number (index) for appending.
+        second_data_df['Engine'] = (second_data_df['Engine'] + 100).astype(int)
+        third_data_df['Engine'] = (third_data_df['Engine'] + 360).astype(int)
+        fourth_data_df['Engine'] = (fourth_data_df['Engine'] + 460).astype(int)
+
+        # Append dataframes together.
+        raw_data_df = first_data_df
+        raw_data_df = first_data_df.append(second_data_df)
+        raw_data_df = raw_data_df.append(third_data_df)
+        raw_data_df = raw_data_df.append(fourth_data_df)
+
+        # Import the raw data into series of dataframes.
+        first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
+        second_data_df = pd.read_csv(filename2_string, header = None, names = dataset_columns, delim_whitespace = True)
+        third_data_df = pd.read_csv(filename3_string, header = None, names = dataset_columns, delim_whitespace = True)
+        fourth_data_df = pd.read_csv(filename4_string, header = None, names = dataset_columns, delim_whitespace = True)
+
+        # Normalise engine number (index) for appending.
+        second_data_df['Engine'] = (second_data_df['Engine'] + 100).astype(int)
+        third_data_df['Engine'] = (third_data_df['Engine'] + 360).astype(int)
+        fourth_data_df['Engine'] = (fourth_data_df['Engine'] + 460).astype(int)
+
+        # Append dataframes together.
+        raw_data_df = first_data_df
+        raw_data_df = first_data_df.append(second_data_df)
+        raw_data_df = raw_data_df.append(third_data_df)
+        raw_data_df = raw_data_df.append(fourth_data_df)
+
+    else:
+        first_data_df = pd.read_csv(filename1_string, header = None, names = dataset_columns, delim_whitespace = True)
+        
+        raw_data_df = first_data_df
 
     # Set index to engine number.
     raw_data_df.set_index('Engine', inplace = True)
-    
-    print(raw_data_df.head)
+
+    print("Loading Complete.")
 
     return raw_data_df
 
