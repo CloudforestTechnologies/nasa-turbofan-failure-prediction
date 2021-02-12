@@ -2,7 +2,7 @@
 
 This data analytics / machine learning project investigates the relationship between behavioural variables and the onset of failure (in terms of remaining engine cycles) for simulated operational turbofan data from a NASA research project. 
 
-The project starts with data visualisation and exploration, folowed by the development of predictive models for rotor and stator temperatures using linear regression, ensemble methods and neural networks using the Keras API.
+The project starts with an exploration of the datasets, folowed by the development of predictive models for engine Remaining Useful Life (RUL) based on current engine readings. Modelling techniques include linear regression and neural networks (using TF-Keras).
 
 Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
 
