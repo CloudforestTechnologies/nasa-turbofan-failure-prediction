@@ -25,9 +25,9 @@ Many of the variable distributions are normal or skew-normal, whilst some variab
 
 ![Image of Distributions](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Reading_Distribution_All_Engines_2021_02_09-11_49_07.png)
 
-And a number of variables show a clear trend as a point of failure is reached, providing the starting point for predictive modelling:f
+And a number of variables show a clear trend as a point of failure is reached, providing the starting point for predictive modelling:
 
-![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Time_Series_All_Engines_2021_02_09-11_52_38.png)
+![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Time_Series_All_Engines_2021_02_09-11_49_28.png)
 
 Consult the Notebooks section of the repository for further information.
 
