@@ -15,7 +15,7 @@ An article about this investigation can be found at: https://www.cloudforesttech
 
 # Exploring the Dataset
 
-Datasets where explored using Jupyter Notebooks, with intitial checks for data quality followed by investigations for variable relationships.
+Datasets where explored using Jupyter Notebooks, with intitial checks for data quality followed by investigations for variable relationships. The quality of the data was generally very good, with very few instances of missing data or incorrect datatypes.
 
 # Predictive Modelling
 
