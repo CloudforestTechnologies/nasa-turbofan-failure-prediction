@@ -4,6 +4,8 @@ This data analytics / machine learning project investigates the relationship bet
 
 The project starts with an exploration of the datasets, folowed by the development of predictive models for engine Remaining Useful Life (RUL) based on current engine readings. Modelling techniques include linear regression and neural networks (using TF-Keras).
 
+![Image of Turbofan] (https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Miscellaneous/208009339-huge.jpg)
+
 Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
 
 An article about this investigation can be found at: https://www.cloudforesttechnologies.com/post/predictive-analytics-implementation-strategies
