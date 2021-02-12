@@ -15,7 +15,7 @@ An article about this investigation can be found at: https://www.cloudforesttech
 
 # Exploring the Dataset
 
-xxx
+Datasets where explored using Jupyter Notebooks, with intitial checks for data quality followed by investigations for variable relationships.
 
 # Predictive Modelling
 
