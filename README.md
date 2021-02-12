@@ -17,9 +17,11 @@ An article about this investigation can be found at: https://www.cloudforesttech
 
 Datasets where explored using Jupyter Notebooks, with intitial checks for data quality followed by investigations for variable relationships. The quality of the data was generally very good, with very few instances of missing data or incorrect datatypes.
 
-An investigation of linear correlations between variables provided a strong foundation for selecting a subset of variables to act as inputs to the predictive model:
+Strong linear correlations between a number of variables can be seen in the dataset, providing a strong foundation for subsetting variables for the predictive model:
 
 ![Image of Correlations](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Dataset_Linear_Correlations_2021_02_09-11_51_00.png)
+
+
 
 Consult the Notebooks section of the repository for further information.
 
