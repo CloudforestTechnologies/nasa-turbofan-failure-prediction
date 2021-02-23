@@ -96,7 +96,7 @@ if __name__ == '__main__':
     #rul_dataset = pd.read_pickle(r'D:\Developer Area\nasa_turbofan_failure_prediction\data\normalised_data.pkl')
 
     # Create baseline ML model tracking against RUL.
-    baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = False)
+    #baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate random forest regressor.
     random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = False)
