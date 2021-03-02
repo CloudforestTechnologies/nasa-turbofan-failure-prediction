@@ -32,7 +32,7 @@ def perform_gridsearch(model_name, model, training_data, label_data):
     """
     
     # Exploratory hyperparameters
-    param_grid = [ {'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6]},
+    param_grid = [ {'n_estimators': [3, 10, 30, 50, 100], 'max_features': [2, 4, 6, 8, 10, 12]},
                     {'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2, 3, 4]},
                     ]
 
