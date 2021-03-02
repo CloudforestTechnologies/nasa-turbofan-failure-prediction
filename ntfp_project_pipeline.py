@@ -99,7 +99,7 @@ if __name__ == '__main__':
     #baseline_model = dataset_baseline.create_baseline_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate random forest regressor.
-    random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = False)
+    #random_forest_model = random_forest.train_random_forest_model(rul_dataset, 'RUL', apply_pca = False)
 
     # Train / evaluate NN.
     mlp_NN_model = mlp_nn.train_multi_layer_NN_model(rul_dataset, 'RUL', apply_pca = False)
