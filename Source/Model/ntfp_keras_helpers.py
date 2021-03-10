@@ -17,14 +17,13 @@ from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-#import keras
 import time
 from Source import constants
 
 print('[keras_helpers]Tensorflow version:', tf.__version__)
 print('[keras_helpers]keras version =', keras.__version__)
 
-def build_multilayer_perceptron(n_hidden = 2, n_neurons = 6, learning_rate = 1e-3, input_shape = [6]):
+def build_multilayer_perceptron(n_hidden = 2, n_neurons = 6, learning_rate = 1e-3, input_shape = [13]):
     """
     Build and compile multilayer perceptron model.
     ======================================
@@ -34,7 +33,6 @@ def build_multilayer_perceptron(n_hidden = 2, n_neurons = 6, learning_rate = 1e-
         n_neurons (int) = Number of neurons in hidden layer.
         learning_rate (float) = Learning rate for optimiser.
         input_shape (array) - An array used to set the shape of the layers.
-        output_shape (array) - An array used to set the shape of the output.
 
     Output:
         model (Sequential) - A multilayer perceptron model designed for the data profile.
