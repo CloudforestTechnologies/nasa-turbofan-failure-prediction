@@ -37,7 +37,15 @@ Consult the Notebooks section of the repository for further information.
 
 Having analysed some of the relationships between sensor data and remaining useful life, a series of machine learning models were developed to predict how many cycles an engine had before a failure event based on realtime readings. 
 
-A number of different types of machine learning model were investigated, including linear and polynomial regression, decision tree regressors, random forest regressors and neural network regressors (using TensorFlow and Keras).
+A number of different types of machine learning model were investigated, including linear and polynomial regression, decision tree regressors, random forest regressors and neural network regressors (using TensorFlow and Keras). The dataset was preprocessed to select the most influential input variables, and remaining cycles to failure was used as the target variable. 
+
+An out-of-the-box linear regression model trained on the data achieved RMSEs and MAEs of 46.4 and 35.7 cycles respectively - The average remaining number of cycles for each engine is around 270 cycles, so this works out as a rule-of-thumb accuracy of around 15%.
+
+Visualising the predicted 
+
+TF MLP_NN performance
+
+Using the data from all engines.
 
 # Installation & Setup
 
