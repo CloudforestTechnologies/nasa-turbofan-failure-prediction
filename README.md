@@ -25,7 +25,7 @@ Strong linear correlations between a number of variables can be seen in the data
 
 And a number of variables show clear trends as a point of failure is approached, providing the starting point for predictive modelling:
 
-![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Time_Series_All_Engines_2021_02_09-11_49_28.png)
+![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Time_Series_All_Engines_2021_02_09-11_49_28_v2.png)
 
 Consult the Notebooks section of the repository for further information.
 
