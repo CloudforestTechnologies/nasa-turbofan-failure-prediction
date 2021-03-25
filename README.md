@@ -39,7 +39,7 @@ An out-of-the-box linear regression model trained on the data achieved RMSEs and
 
 Visualising predicted versus actual life cycles shows that the predictive models become more accurate as failure is approached.
 
-![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Time_Series_All_Engines_2021_02_09-11_49_28.png)
+![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Lin_Reg_Prediction_Err_2021_03_25-10_16_41_v2.png)
 
 Consult the Notebooks section of the repository for further information.
 
