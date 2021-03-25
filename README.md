@@ -35,7 +35,7 @@ Having analysed some of the relationships between sensor data and remaining usef
 
 A number of different types of machine learning model were investigated, including linear and polynomial regression, decision tree regressors, random forest regressors and neural network regressors (using TensorFlow and Keras). The dataset was preprocessed to select the most influential input variables, and remaining cycles to failure were used as the target variable. 
 
-An linear regression models trained on the data achieved RMSEs and MAEs of 46.4 and 35.7 cycles respectively - The average remaining number of cycles for each engine is around 270 cycles, so this works out as a rule-of-thumb accuracy of around 15%. Neural networks performed at a similar level, although with optimisation and some preprocessing it is thought this could be improved.
+An linear regression models trained on the data achieved RMSEs and MAEs of 46.4 and 35.7 cycles respectively (basically how many cycles out, on average, each prediction was) -  Neural networks performed at a similar level, although with optimisation and some preprocessing it is thought this could be improved.
 
 Visualising predicted versus actual life cycles shows that the predictive models become more accurate as failure is approached, although there is a slight over-prediction of remaining lifetime, which would need to be accounted for if using this model operationally:
 
