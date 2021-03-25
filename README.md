@@ -6,7 +6,7 @@ The project starts with an exploration of the datasets, folowed by the developme
 
 ![Image of Turbofan](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Miscellaneous/208009339-huge.jpg)
 
-Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
+All machines are prone to wear and downtime, costing operators millions of pounds in unscheduled and reactive maintenance, with a particularly acute impact in safety critical, high-utilisation assets like aviation turbofans. Realworld and simulation sensor data can provide insights into asset condition - What if it could be used to predict when maintenance was needed?
 
 An in-depth article about this investigation can be found at: https://www.cloudforesttechnologies.com/post/predictive-analytics-implementation-strategies
 
@@ -48,6 +48,8 @@ Consult the Notebooks section of the repository for further information.
 The following packages are required to support this project:
 
 numpy, pandas, matplotlib, seaborn, sklearn, keras.
+
+Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
 
 # Clone
 
