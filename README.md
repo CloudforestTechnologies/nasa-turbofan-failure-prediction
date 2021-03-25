@@ -1,6 +1,6 @@
 # NASA Turbofan Failure Prediction
 
-This data analytics / machine learning project investigates the relationship between sensor data and the onset of failure (in terms of remaining engine cycles) for simulated  turbofan engines from a NASA research project. 
+This data analytics / machine learning project investigates the relationship between sensor readings and the onset of failure (in terms of remaining engine cycles) for simulated turbofan engine data from a NASA research project. 
 
 The project starts with an exploration of the datasets, folowed by the development of predictive models for engine Remaining Useful Life (RUL) based on current engine readings. Modelling techniques include linear regression and neural networks (using TF-Keras).
 
@@ -8,7 +8,7 @@ The project starts with an exploration of the datasets, folowed by the developme
 
 Training data is sourced from the NASA Prognostics Center Data Repository: https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan
 
-An article about this investigation can be found at: https://www.cloudforesttechnologies.com/post/predictive-analytics-implementation-strategies
+An in-depth article about this investigation can be found at: https://www.cloudforesttechnologies.com/post/predictive-analytics-implementation-strategies
 
 # Project Objectives
 
@@ -33,11 +33,11 @@ Consult the Notebooks section of the repository for further information.
 
 Having analysed some of the relationships between sensor data and remaining useful life, a series of machine learning models were developed to predict how many cycles an engine had before a failure event based on realtime readings. 
 
-A number of different types of machine learning model were investigated, including linear and polynomial regression, decision tree regressors, random forest regressors and neural network regressors (using TensorFlow and Keras). The dataset was preprocessed to select the most influential input variables, and remaining cycles to failure was used as the target variable. 
+A number of different types of machine learning model were investigated, including linear and polynomial regression, decision tree regressors, random forest regressors and neural network regressors (using TensorFlow and Keras). The dataset was preprocessed to select the most influential input variables, and remaining cycles to failure were used as the target variable. 
 
-An out-of-the-box linear regression model trained on the data achieved RMSEs and MAEs of 46.4 and 35.7 cycles respectively - The average remaining number of cycles for each engine is around 270 cycles, so this works out as a rule-of-thumb accuracy of around 15%. Neural networks performed at a similar level.
+An linear regression models trained on the data achieved RMSEs and MAEs of 46.4 and 35.7 cycles respectively - The average remaining number of cycles for each engine is around 270 cycles, so this works out as a rule-of-thumb accuracy of around 15%. Neural networks performed at a similar level, although with optimisation and some preprocessing it is thought this could be improved.
 
-Visualising predicted versus actual life cycles shows that the predictive models become more accurate as failure is approached.
+Visualising predicted versus actual life cycles shows that the predictive models become more accurate as failure is approached, although there is a slight over-prediction of remaining lifetime, which would need to be accounted for if using this model operationally:
 
 ![Image of Time Series](https://github.com/PMetcalf/nasa-turbofan-failure-prediction/blob/master/Reports/Figures/PM_Lin_Reg_Prediction_Err_2021_03_25-10_16_41_v2.png)
 
