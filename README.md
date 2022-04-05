@@ -17,7 +17,7 @@ An in-depth article about this investigation can be found at: https://www.cloudf
 
 # Exploring the Dataset
 
-Datasets where explored using Jupyter Notebooks, with intitial checks for data quality followed by visualisation and exploration of variable relationships. The quality of the data was generally very good, with very few instances of missing data or incorrect datatypes, although accompanying documentation indicates the presence of noise on some sensors.
+Datasets were explored using Jupyter Notebooks, with intitial checks for data quality followed by visualisation and exploration of variable relationships. The quality of the data was generally very good, with very few instances of missing data or incorrect datatypes, although accompanying documentation indicates the presence of noise on some sensors.
 
 Strong linear correlations between a number of variables can be seen in the dataset, providing a strong foundation for subsetting variables for the predictive model:
 
